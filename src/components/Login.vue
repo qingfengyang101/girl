@@ -1,6 +1,7 @@
 <template>
     <div class="login-warp">
       <img src="../assets/login-banner.jpg">
+      <p>{{ $sassMap.$widthPull }}</p>
     </div>
 </template>
 
@@ -9,7 +10,7 @@
       name: "Login",
       data () {
         return {
-
+          message: this.$sassMap.$widthPull
         }
       },
       methods: {

@@ -32,4 +32,18 @@ const SASS_COMMON_VALUE = {
 
 }
 
-export default  SASS_COMMON_VALUE;
+
+let $sassMap = {};
+
+const $sass = {
+  install (Vue) {
+    for (let key in SASS_COMMON_VALUE) {
+       $sassMap[key] = SASS_COMMON_VALUE[key];
+    }
+
+    Vue.prototype.$sassMap = $sassMap;
+  },
+}
+
+export default  $sass;
+export const install = $sass.install;
