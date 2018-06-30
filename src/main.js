@@ -3,18 +3,22 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-
 /** use common function **/
 import * as PLUG from "./plugin/index";
+
 /** use common component.js **/
 import * as commonComponentMap from './components/commonComponents/index';
 
 /** use plugin **/
 Vue.use(PLUG);
+
 /** use common component **/
 Vue.use(commonComponentMap);
 
 
+
+import store from './store/index.js';
+console.log(store, 'store');
 
 Vue.config.productionTip = false;
 
@@ -24,6 +28,7 @@ Vue.config.productionTip = false;
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
