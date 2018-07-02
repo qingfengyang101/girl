@@ -8,13 +8,14 @@ import * as PLUG from "./plugin/index";
 
 /** use common component.js **/
 import * as commonComponentMap from './components/commonComponents/index';
+import MuseUI from './external/index';
 
 /** use plugin **/
 Vue.use(PLUG);
 
 /** use common component **/
 Vue.use(commonComponentMap);
-
+Vue.use(MuseUI);
 
 
 import store from './store/index.js';

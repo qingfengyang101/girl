@@ -1,14 +1,13 @@
 <template>
     <div class="login-warp">
-      <img src="../assets/login-banner.jpg">
-      <p>{{ $sassMap.$widthPull }}</p>
-      <p> {{ $LanguageMap.LABEL_MY_WIFE_NAME}}</p>
-      <p>{{ $api.LOGIN_API }}</p>
-      <p>{{ getName('xuyinghao') }}</p>
-      <login-common>
-      </login-common>
-      <p>{{ userNameCommon }}</p>
-      <button type="button" @click="getUserName">获取用户名字</button>
+        <mu-appbar style="width: 100%; margin-bottom: 100px " title="我媳妇" color="primary"></mu-appbar>
+      <mu-container>
+        <mu-flex justify-content="between" align-items="end" wrap="wrap">
+          <mu-paper :z-depth="1" class="demo-date-picker">
+            <mu-date-picker landscape :date.sync="date"></mu-date-picker>
+          </mu-paper>
+        </mu-flex>
+      </mu-container>
     </div>
 </template>
 
