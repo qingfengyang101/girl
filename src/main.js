@@ -3,27 +3,23 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+
 /** use common function **/
 import * as PLUG from "./plugin/index";
 
 /** use common component.js **/
 import * as commonComponentMap from './components/commonComponents/index';
 import MuseUI from './external/index';
+import Lodash from './external/lodash';
+import store from './store/index.js';
 
-/** use plugin **/
+Vue.prototype.$lodash = Lodash;
+
 Vue.use(PLUG);
-
-/** use common component **/
 Vue.use(commonComponentMap);
 Vue.use(MuseUI);
 
-
-import store from './store/index.js';
-console.log(store, 'store');
-
 Vue.config.productionTip = false;
-
-
 
 /* eslint-disable no-new */
 new Vue({
