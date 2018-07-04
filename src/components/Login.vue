@@ -80,29 +80,21 @@
       </div>
 
       <!-- 弹框提示 -->
-      <div class="pop-box">
-        <mu-dialog
-          :title="$LanguageMap.DIALOG_TITLE_TIP_GO"
-          class="dialog-title-style"
-          :esc-press-close="false"
-          :overlayClose="openAlert"
-          :open.sync="openAlert"
-          :overlay="openAlert"
-          transition="slide-top"
-          :overlayOpacity="$constant.OVERLAY_OPACITY"
-        >
-          {{ $LanguageMap.DIALOG_OVERLAY_CLOSE_MESSAGE }}
 
-          <mu-button slot="actions" flat color="primary" @click="closeAlertDialog">
-            {{ $LanguageMap.BTN_GO }}
-          </mu-button>
-        </mu-dialog>
-      </div>
+        <common-dialog
+          titleClass="login-dialog-title-style"
+          :title="$LanguageMap.DIALOG_TITLE_TIP_GO"
+          dialogContentClass="login-dialog-content-style"
+          :dialogContentText="$LanguageMap.DIALOG_OVERLAY_CLOSE_MESSAGE"
+          :showShade="isShowShade"
+          :showDialog="isShowDialog"
+          @handleBtnClick="handleBtnClick"
+        >
+        </common-dialog>
 
       <!-- 成功闯关弹框提示 -->
       <mu-dialog
         :title="$LanguageMap.DIALOG_TITLE_SUCCESS_TIP"
-        class="dialog-title-style"
         :esc-press-close="false"
         :overlayClose="openSuccess"
         :open.sync="openSuccess"
@@ -138,13 +130,15 @@
           wifeBoyErrorText: '',
           wifeBirthdayDateErrorText: '',
           errorShowText: '',
-          openAlert: true,
-          openSuccess: false
+          openSuccess: false,
+          isShowShade: true,
+          isShowDialog: true
         }
       },
       methods: {
-        closeAlertDialog: function () {
-          this.openAlert = false;
+        handleBtnClick: function () {
+          this.isShowShade = false;
+          this.isShowDialog = false;
         },
         handleWifeNameBlur: function () {
           this.wifeName === this.$constant.WIFE_NAME
@@ -227,15 +221,26 @@
       text-align: center;
     }
 
-    .pop-box {
-
-      .dialog-title-style {
-        border-radius: 5px;
-        color: #0eb3fc;
+      .login-dialog-title-style {
+        width: 300px;
+        height: 54px;
+        line-height: 54px;
+        text-align: left;
+        font-weight: 400;
+        color: @color-ffffff;
+        background-color: #0eb3fc;
       }
 
-    }
-
+      .login-dialog-content-style {
+        width: 300px;
+        color: @color-ffffff;
+        font-size: 16px;
+        padding-left: 12px;
+        padding-right: 12px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+      }
   }
 
   .img-box {
@@ -257,9 +262,11 @@
       height: 660px;
       padding-left: 153px;
 
-      .dialog-title-style {
+      .dialog-style {
         width: 600px;
         max-width: 80%;
+        border-radius: 5px;
+        font-size: 16px;
       }
 
       .btn-submit-style {
