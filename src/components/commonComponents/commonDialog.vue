@@ -5,25 +5,31 @@
       :name="$constant.TRANSITION_FADE"
     >
       <!-- dialog -->
-      <div
-        class="dialog-warp"
-        v-if="showDialog"
-      >
-        <h4 :class="classTitle"> {{  title }}</h4>
-        <div :class="dialogContentClass">
-          {{ dialogContentText }}
-        </div>
-        <mu-button
-          fullWidth
-          flat
-          slot="actions"
-          color="primary"
-          @click="handleBtnClick"
+      <div class="transition-box" v-if="showShade">
+        <div
+          class="dialog-warp"
+          v-if="showDialog"
         >
-        </mu-button>
+          <div class="title-warp">
+            <mu-appbar
+              color="primary"
+              style="width: 100%;"
+            >
+              <mu-button icon slot="left">
+                <mu-icon value="menu"></mu-icon>
+              </mu-button>
+              {{ $LanguageMap.DIALOG_TITLE_TIP_MESSAGE}}
+            </mu-appbar>
+          </div>
+          <div class="login-dialog-content-style">
+            <h4> {{ title }} </h4>
+            {{ dialogContentText }}
+          </div>
+          <!-- 卡槽 -->
+          <slot></slot>
+        </div>
       </div>
     </transition>
-
   </div>
 </template>
 
@@ -34,10 +40,6 @@
       components: {},
       props: {
         title: {
-          type: String,
-          default: ''
-        },
-        classTitle: {
           type: String,
           default: ''
         },
@@ -61,7 +63,6 @@
       },
       data () {
         return {
-
         }
       },
       methods: {
@@ -78,19 +79,40 @@
   @import '../../assets/common_variable';
 
   .common-dialog {
-    position: fixed;
-    left: 0;
-    top: 0;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
     width: 100%;
     height: 100%;
-    background-color: @color-000000;
-    opacity: 0.7;
-    z-index: 10;
+
+    .transition-box {
+      position: fixed;
+      left: 0;
+      top: 0;
+
+      width: 100%;
+      height: 100%;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      background-color: @color-000000;
+      opacity: 0.9;
+      z-index: 10;
+
+      .dialog-warp {
+        border-radius: 7px;
+
+        width: 500px;
+        height: 350px;
+        background-color: @color-ffffff;
+        box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+
+
+        .login-dialog-content-style {
+          padding: 10px 10px;
+        }
+      }
+
+    }
 
     .fade-enter-active, .fade-leave-active {
       transition: opacity .5s;
@@ -98,15 +120,6 @@
     .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
       opacity: 0;
     }
-
-    .dialog-warp {
-      border-radius: 5px;
-
-      width: 500px;
-      height:500px;
-      background-color: @color-ffffff;
-    }
-
   }
 
 </style>

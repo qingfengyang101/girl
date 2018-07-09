@@ -13,6 +13,7 @@
           {{ $LanguageMap.LABEL_LOGIN }}
         </mu-button>
       </mu-appbar>
+      <!-- 答题部分 -->
       <div class="img-box">
         <!-- 登录信息验证 -->
         <div class="login-wife-warp">
@@ -79,10 +80,57 @@
         </div>
       </div>
 
-      <!-- 弹框提示 -->
+      <!-- 右面展示 -->
+      <div class="right-show-wife">
+        <mu-expansion-panel
+          :expand="panel === 'panel1'"
+          @change="toggle('panel1')"
+          class="common-wife-head"
+        >
+          <div slot="header">
+            <!-- 小公主简介 -->
+            <mu-avatar size="100px">
+              <img src="../assets/img/wife-head.png">
+            </mu-avatar>
+          </div>
+          <!-- 具体内容 -->
+          <div class="wife-info-text-content">
+            <mu-text-field
+              :placeholder="$LanguageMap.HOLDER_WIFE_HOBBY_BASE"
+              solo
+              full-width
+            >
+              {{ $LanguageMap.LABEL_WIFE_BASE_INFO }}
+            </mu-text-field>
+            <mu-divider></mu-divider>
+            <mu-text-field placeholder="Input Two" solo full-width class="demo-divider-form"></mu-text-field>
+            <mu-divider></mu-divider>
+            <mu-text-field placeholder="Input Three" solo full-width class="demo-divider-form"></mu-text-field>
+            <mu-divider></mu-divider>
+            <mu-text-field placeholder="Input Four" solo full-width class="demo-divider-form"></mu-text-field>
+            <mu-divider></mu-divider>
+            <mu-text-field placeholder="Input Five" solo full-width class="demo-divider-form"></mu-text-field>
+          </div>
 
-        <common-dialog
-          titleClass="login-dialog-title-style"
+        </mu-expansion-panel>
+        <mu-expansion-panel
+          :expand="panel === 'panel2'"
+          @change="toggle('panel2')"
+          class="common-wife-head"
+        >
+          <div slot="header">Panel 2</div>
+        </mu-expansion-panel>
+        <mu-expansion-panel
+          :expand="panel === 'panel3'"
+          @change="toggle('panel3')"
+          class="common-wife-head"
+        >
+          <div slot="header">Panel 3</div>
+        </mu-expansion-panel>
+      </div>
+
+      <!-- 弹框提示 -->
+      <common-dialog
           :title="$LanguageMap.DIALOG_TITLE_TIP_GO"
           dialogContentClass="login-dialog-content-style"
           :dialogContentText="$LanguageMap.DIALOG_OVERLAY_CLOSE_MESSAGE"
@@ -90,8 +138,14 @@
           :showDialog="isShowDialog"
           @handleBtnClick="handleBtnClick"
         >
+          <mu-button
+            color="primary"
+            @click="handleBtnClick"
+            class="button-start"
+          >
+            {{ $LanguageMap.BTN_GO }}
+          </mu-button>
         </common-dialog>
-
       <!-- 成功闯关弹框提示 -->
       <mu-dialog
         :title="$LanguageMap.DIALOG_TITLE_SUCCESS_TIP"
@@ -108,7 +162,6 @@
           {{ $LanguageMap.BTN_GO }}
         </mu-button>
       </mu-dialog>
-
     </div>
 </template>
 
@@ -132,7 +185,8 @@
           errorShowText: '',
           openSuccess: false,
           isShowShade: true,
-          isShowDialog: true
+          isShowDialog: true,
+          panel: '',
         }
       },
       methods: {
@@ -175,6 +229,9 @@
         },
         handleSubmitAnswer: function () {
           this.openSuccess = true;
+        },
+        toggle: function (panel) {
+          this.panel = panel === this.panel ? '' : panel;
         },
         closeSuccessDialog: function () {
           this.$router.push({
@@ -221,58 +278,92 @@
       text-align: center;
     }
 
-      .login-dialog-title-style {
-        width: 300px;
-        height: 54px;
-        line-height: 54px;
-        text-align: left;
-        font-weight: 400;
-        color: @color-ffffff;
-        background-color: #0eb3fc;
-      }
+    .login-dialog-title-style {
+      width: 300px;
+      height: 54px;
+      line-height: 54px;
+      text-align: left;
+      font-weight: 400;
+      color: @color-ffffff;
+      background-color: #0eb3fc;
+    }
 
-      .login-dialog-content-style {
-        width: 300px;
-        color: @color-ffffff;
-        font-size: 16px;
-        padding-left: 12px;
-        padding-right: 12px;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        white-space: nowrap;
-      }
-  }
+    .login-dialog-content-style {
+      width: 300px;
+      color: @color-ffffff;
+      font-size: 16px;
+      padding-left: 12px;
+      padding-right: 12px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
 
-  .img-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    .button-start {
+      float: right;
+      margin-right: 20px;
+      margin-top: 20px;
+    }
 
-    width: 100%;
-    height: 100%;
+    .img-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
-    position: relative;
-    background-image: url("../../src/assets/img/login-ba.jpg");
-    background-repeat: repeat;
-    -webkit-background-size: 100% 100% ;
-
-    .login-wife-warp {
       width: 100%;
-      max-width: 660px;
-      height: 660px;
-      padding-left: 153px;
+      height: 100%;
 
-      .dialog-style {
-        width: 600px;
-        max-width: 80%;
-        border-radius: 5px;
-        font-size: 16px;
-      }
+      position: relative;
 
-      .btn-submit-style {
-        float: right;
-        margin-top: 20px;
+      .login-wife-warp {
+        width: 100%;
+        max-width: 660px;
+        height: 660px;
+        padding-left: 153px;
+
+        .dialog-style {
+          width: 600px;
+          max-width: 80%;
+          border-radius: 5px;
+          font-size: 16px;
+        }
+
+        .btn-submit-style {
+          float: right;
+          margin-top: 20px;
+        }
       }
     }
+
+    .right-show-wife {
+      width: 350px;
+      height: 100%;
+      background-color: @color-ffffff;
+      box-shadow: 0 8px 10px -5px rgba(0,0,0,.2), 0 16px 24px 2px rgba(0,0,0,.14), 0 6px 30px 5px rgba(0,0,0,.12);
+
+      position: absolute;
+      top: 80px;
+      bottom: 0;
+
+      .common-wife-head {
+        width: 100%;
+        padding-top: 20px;
+        padding-left: 10px;
+
+        .wife-info-text {
+          display: inline-block;
+          vertical-align: middle;
+          margin-bottom: 60px;
+          margin-left: 10px;
+        }
+
+        .wife-info-text-content {
+
+        }
+      }
+    }
+
   }
+
+
 </style>

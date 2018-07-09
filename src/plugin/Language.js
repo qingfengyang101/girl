@@ -12,15 +12,19 @@ let Language = {
   LABEL_WIFE_LIKE_FOOD: '输入小公主最喜欢的漯河火锅名称',
   LABEL_WIFE_BOY: '输入小公主的老公名字',
   LABEL_LOGIN: 'LOGIN',
+  LABEL_WIFE_BASE_INFO: '基本爱好',
+
 
   /** placeholder **/
   HOLDER_WIFE_NAME: '输入小公主姓名',
   HOLDER_WIFE_TELEPHONE: '输入小公主电话',
+  HOLDER_WIFE_HOBBY_BASE: '爱好生活',
 
   /** title **/
   TITLE_HOME_PHOTO: '猜照片',
 
   /** dialog **/
+  DIALOG_TITLE_TIP_MESSAGE: '温馨提示',
   DIALOG_TITLE_TIP_GO: '亲， 今天是小公主的生日， 你需要闯关通过，你才能看到神秘的生日礼物！祝你成功哦！',
   DIALOG_OVERLAY_CLOSE_MESSAGE: '能参加小公主的生日， 想必是小公主的最亲近的人， 那一定对小公主的生活各个方面都比较了解，请仔细回想， 认真闯关哦！',
   DIALOG_TITLE_SUCCESS_TIP: '恭喜亲，闯关成功! 确认过眼神, 下一关，继续加油哦！',
