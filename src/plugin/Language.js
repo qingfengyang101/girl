@@ -13,6 +13,7 @@ let Language = {
   LABEL_WIFE_BOY: '输入小公主的老公名字',
   LABEL_LOGIN: 'LOGIN',
   LABEL_WIFE_BASE_INFO: '基本爱好',
+  LABEL_MY_WIFE_MESSAGE_BOARD: '留言板',
 
 
   /** placeholder **/

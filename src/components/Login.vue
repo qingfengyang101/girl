@@ -87,7 +87,7 @@
           @change="toggle('panel1')"
           class="common-wife-head"
         >
-          <div slot="header">
+          <div slot="header" style="margin-left: 70px">
             <!-- 小公主简介 -->
             <mu-avatar size="100px">
               <img src="../assets/img/wife-head.png">
@@ -95,6 +95,7 @@
           </div>
           <!-- 具体内容 -->
           <div class="wife-info-text-content">
+            <h4 class="message-board"> {{ $LanguageMap.LABEL_MY_WIFE_MESSAGE_BOARD }}</h4>
             <mu-text-field
               :placeholder="$LanguageMap.HOLDER_WIFE_HOBBY_BASE"
               solo
@@ -358,7 +359,15 @@
         }
 
         .wife-info-text-content {
-
+          .message-board {
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 7px;
+            color: @color-ffffff;
+            background-color: @color-2196f3;
+          }
         }
       }
     }
