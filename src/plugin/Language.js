@@ -12,14 +12,34 @@ let Language = {
   LABEL_WIFE_LIKE_FOOD: '输入小公主最喜欢的漯河火锅名称',
   LABEL_WIFE_BOY: '输入小公主的老公名字',
   LABEL_LOGIN: 'LOGIN',
-  LABEL_WIFE_BASE_INFO: '基本爱好',
-  LABEL_MY_WIFE_MESSAGE_BOARD: '留言板',
-
+  LABEL_WIFE_BASE_INFO: '个人爱好',
+  LABEL_MY_WIFE_MESSAGE_BOARD: '小公主基本信息',
+  LABEL_WIFE_CONSTELLATION: '巨蟹座',
+  LABEL_WIFE_BASE_INFO_CONSTELLATION: '星座',
+  LABEL_WIFE_BASE_INFO_BLOOD_TYPE: 'A型',
+  LABEL_WIFE_BASE_INFO_BLOOD: '血型',
+  LABEL_WIFE_BASE_INFO_HOMETOWN: '故乡',
+  LABEL_WIFE_BASE_INFO_WIFE_HOMETOWN: '漯河舞阳',
+  LABEL_WIFE_BASE_INFO_LOVE: '爱情',
+  LABEL_WIFE_BASE_INFO_WIFE_LOVE: '心有所属， 男神们别再惦记了！',
+  LABEL_WIFE_BASE_INFO_SIGNATURE: '小公主个人签名',
+  LABEL_WIFE_BASE_INFO_LIKE_WORDS: '我可以发脾气， 你不可以！',
+  LABEL_WIFE_BASE_INFO_WORDS: '最喜欢的话',
+  LABEL_WIFE_BASE_INFO_WIFE_APHORISM: '你要包容我， 不然， 你完了！',
+  LABEL_WIFE_BASE_INFO_APHORISM: '格言',
+  LABEL_WIFE_BASE_INFO_WIFE_LIKE_LOVE: '相知相伴，不负今生',
+  LABEL_WIFE_BASE_INFO_LIKE_LOVE: '向往的爱情',
+  LABEL_WIFE_BASE_INFO_WIFE_LIFE: '踏实温馨，平淡甘甜',
+  LABEL_WIFE_BASE_INFO_LIKE_LIFE: '向往的生活',
+  LABEL_WIFE_BASE_INFO_SEND_MESSAGE_BORD: '小公主个人留言板',
 
   /** placeholder **/
   HOLDER_WIFE_NAME: '输入小公主姓名',
   HOLDER_WIFE_TELEPHONE: '输入小公主电话',
-  HOLDER_WIFE_HOBBY_BASE: '爱好生活',
+  HOLDER_WIFE_HOBBY_BASE: '美食， 旅游',
+  HOLDER_WIFE_HOBBY_BASE_SEND_MESSAGE: '亲， 你想对小公主说些什么呢？请写下来了吧！',
+  HOLDER_WIFE_HOBBY_BASE_SEND_MESSAGE_TITLE: '亲， 请输入你的心里话',
+
 
   /** title **/
   TITLE_HOME_PHOTO: '猜照片',
@@ -34,6 +54,7 @@ let Language = {
   /** button **/
   BTN_GO: '开始吧',
   BTN_SUBMIT_ANSWER: '提交答案',
+  BTN_SEND_MESSAGE: '点击留言',
 
   /** date **/
   FORMAT_TIME: 'YYYY 年 MM 月 DD 日',

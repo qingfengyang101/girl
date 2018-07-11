@@ -97,20 +97,44 @@
           <div class="wife-info-text-content">
             <h4 class="message-board"> {{ $LanguageMap.LABEL_MY_WIFE_MESSAGE_BOARD }}</h4>
             <mu-text-field
-              :placeholder="$LanguageMap.HOLDER_WIFE_HOBBY_BASE"
-              solo
+              v-model="$LanguageMap.HOLDER_WIFE_HOBBY_BASE"
               full-width
+              style="color: #2196f3;"
             >
               {{ $LanguageMap.LABEL_WIFE_BASE_INFO }}
             </mu-text-field>
-            <mu-divider></mu-divider>
-            <mu-text-field placeholder="Input Two" solo full-width class="demo-divider-form"></mu-text-field>
-            <mu-divider></mu-divider>
-            <mu-text-field placeholder="Input Three" solo full-width class="demo-divider-form"></mu-text-field>
-            <mu-divider></mu-divider>
-            <mu-text-field placeholder="Input Four" solo full-width class="demo-divider-form"></mu-text-field>
-            <mu-divider></mu-divider>
-            <mu-text-field placeholder="Input Five" solo full-width class="demo-divider-form"></mu-text-field>
+            <mu-text-field
+              v-model="$LanguageMap.LABEL_WIFE_CONSTELLATION"
+              full-width
+              class="demo-divider-form"
+              style="color: #2196f3;"
+            >
+              {{ $LanguageMap.LABEL_WIFE_BASE_INFO_CONSTELLATION }}
+            </mu-text-field>
+            <mu-text-field
+              v-model="$LanguageMap.LABEL_WIFE_BASE_INFO_BLOOD_TYPE"
+              full-width
+              class="demo-divider-form"
+              style="color: #2196f3;"
+            >
+              {{ $LanguageMap.LABEL_WIFE_BASE_INFO_BLOOD }}
+            </mu-text-field>
+            <mu-text-field
+              v-model="$LanguageMap.LABEL_WIFE_BASE_INFO_WIFE_HOMETOWN"
+              full-width
+              class="demo-divider-form"
+              style="color: #2196f3;"
+            >
+              {{ $LanguageMap.LABEL_WIFE_BASE_INFO_HOMETOWN }}
+            </mu-text-field>
+            <mu-text-field
+              v-model="$LanguageMap.LABEL_WIFE_BASE_INFO_WIFE_LOVE"
+              full-width
+              class="demo-divider-form"
+              style="color: #2196f3;"
+            >
+              {{ $LanguageMap.LABEL_WIFE_BASE_INFO_LOVE }}
+            </mu-text-field>
           </div>
 
         </mu-expansion-panel>
@@ -119,14 +143,96 @@
           @change="toggle('panel2')"
           class="common-wife-head"
         >
-          <div slot="header">Panel 2</div>
+          <div slot="header" style="margin-left: 70px">
+            <mu-avatar size="100px">
+              <img src="../assets/img/wife-middle.jpg">
+            </mu-avatar>
+          </div>
+          <!-- 具体内容 -->
+          <div class="wife-info-text-content">
+            <h4 class="message-board"> {{ $LanguageMap.LABEL_WIFE_BASE_INFO_SIGNATURE }}</h4>
+            <mu-text-field
+              v-model="$LanguageMap.LABEL_WIFE_BASE_INFO_LIKE_WORDS"
+              full-width
+              style="color: #2196f3;"
+            >
+              {{ $LanguageMap.LABEL_WIFE_BASE_INFO_WORDS }}
+            </mu-text-field>
+            <mu-text-field
+              v-model="$LanguageMap.LABEL_WIFE_BASE_INFO_WIFE_APHORISM"
+              full-width
+              class="demo-divider-form"
+              style="color: #2196f3;"
+            >
+              {{ $LanguageMap.LABEL_WIFE_BASE_INFO_APHORISM }}
+            </mu-text-field>
+            <mu-text-field
+              v-model="$LanguageMap.LABEL_WIFE_BASE_INFO_WIFE_LIKE_LOVE"
+              full-width
+              class="demo-divider-form"
+              style="color: #2196f3;"
+            >
+              {{ $LanguageMap.LABEL_WIFE_BASE_INFO_LIKE_LOVE }}
+            </mu-text-field>
+            <mu-text-field
+              v-model="$LanguageMap.LABEL_WIFE_BASE_INFO_WIFE_LIFE"
+              full-width
+              class="demo-divider-form"
+              style="color: #2196f3;"
+            >
+              {{ $LanguageMap.LABEL_WIFE_BASE_INFO_LIKE_LIFE }}
+            </mu-text-field>
+          </div>
         </mu-expansion-panel>
         <mu-expansion-panel
           :expand="panel === 'panel3'"
           @change="toggle('panel3')"
           class="common-wife-head"
         >
-          <div slot="header">Panel 3</div>
+          <div slot="header">
+            <mu-avatar size="100px" style="margin-left: 70px">
+              <img src="../assets/img/333.jpg">
+            </mu-avatar>
+          </div>
+          <!-- 留言板 -->
+          <div class="wife-info-text-content">
+            <h4 class="message-board"> {{ $LanguageMap.LABEL_WIFE_BASE_INFO_SEND_MESSAGE_BORD }}</h4>
+            <div class="send-message-bord">
+              <mu-button
+                large fab
+                color="primary"
+                @click="openSheet"
+                style="margin-left: 80px"
+              >
+                <mu-icon value="edit"></mu-icon>
+              </mu-button>
+              <span style="vertical-align: middle; margin-left: 20px">
+                {{ $LanguageMap.BTN_SEND_MESSAGE }}
+              </span>
+              <!-- 底部显示区 -->
+              <mu-bottom-sheet :open.sync="openBottomSheetFlag">
+                <mu-list @item-click="closeSheet">
+                  <mu-sub-header>
+                    {{ $LanguageMap.HOLDER_WIFE_HOBBY_BASE_SEND_MESSAGE }}
+                  </mu-sub-header>
+                  <mu-list-item button>
+                    <mu-list-item-action>
+                      <mu-icon value="chat" color="primary"></mu-icon>
+                    </mu-list-item-action>
+                    <mu-list-item-title>
+                    </mu-list-item-title>
+
+                  </mu-list-item>
+                </mu-list>
+                <textarea
+                  style="width: 100%; height: 200px; margin-left: 10px;"
+                  :placeholder="$LanguageMap.HOLDER_WIFE_HOBBY_BASE_SEND_MESSAGE_TITLE"
+                >
+                </textarea>
+              </mu-bottom-sheet>
+            </div>
+          </div>
+
         </mu-expansion-panel>
       </div>
 
@@ -188,6 +294,7 @@
           isShowShade: true,
           isShowDialog: true,
           panel: '',
+          openBottomSheetFlag: null
         }
       },
       methods: {
@@ -233,6 +340,12 @@
         },
         toggle: function (panel) {
           this.panel = panel === this.panel ? '' : panel;
+        },
+        openSheet: function () {
+          this.openBottomSheetFlag = true;
+        },
+        closeSheet: function () {
+
         },
         closeSuccessDialog: function () {
           this.$router.push({
