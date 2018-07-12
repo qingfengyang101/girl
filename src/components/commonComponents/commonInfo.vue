@@ -9,11 +9,9 @@
         name: "commonInfo",
         data () {
           return {
-
           }
         },
       methods: {
-
       },
       computed: {},
       watch: {}

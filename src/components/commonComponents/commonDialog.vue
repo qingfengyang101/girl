@@ -22,11 +22,11 @@
             </mu-appbar>
           </div>
           <div class="login-dialog-content-style">
-            <h4> {{ title }} </h4>
-            {{ dialogContentText }}
+            <h4 class="title-content-style"> {{ title }} </h4>
+            <div class="dialog-content-text"> {{ dialogContentText }} </div>
+            <!-- 卡槽 -->
+            <slot></slot>
           </div>
-          <!-- 卡槽 -->
-          <slot></slot>
         </div>
       </div>
     </transition>
@@ -99,17 +99,34 @@
       z-index: 10;
 
       .dialog-warp {
+        display: block;
         border-radius: 7px;
 
-        width: 500px;
-        height: 350px;
-        background-color: @color-ffffff;
-        box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
-
-
         .login-dialog-content-style {
-          padding: 10px 10px;
+          width: 500px;
+          height: 270px;
+          background-color: @color-ffffff;
+          color: @color-000000;
+          font-size: 16px;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+
+          box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+
+          .title-content-style {
+            padding-left: 20px;
+            padding-right: 10px;
+            white-space: normal;
+          }
+
+          .dialog-content-text {
+            padding-left: 20px;
+            padding-right: 10px;
+            white-space: normal;
+          }
         }
+
       }
 
     }

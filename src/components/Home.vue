@@ -38,22 +38,21 @@
         </mu-flex>
       </div>
     <!-- 页面加载时， 弹框提示 -->
-    <mu-dialog
+    <common-dialog
       :title="$LanguageMap.DIALOG_TITLE_TIP_SECOND"
-      class="dialog-title-style"
-      :esc-press-close="false"
-      :overlayClose="secondAlert"
-      :open.sync="secondAlert"
-      :overlay="secondAlert"
-      transition="slide-top"
-      :overlayOpacity="$constant.OVERLAY_OPACITY"
+      :dialogContentText="$LanguageMap.DIALOG_OVERLAY_CLOSE_MESSAGE"
+      :showShade="isShowShade"
+      :showDialog="isShowDialog"
+      @handleBtnClick="handleBtnClick"
     >
-      {{ $LanguageMap.DIALOG_OVERLAY_CLOSE_MESSAGE }}
-
-      <mu-button slot="actions" flat color="primary" @click="closeAlertDialog">
+      <mu-button
+           color="primary"
+           @click="handleBtnClick"
+           class="button-start"
+      >
         {{ $LanguageMap.BTN_GO }}
       </mu-button>
-    </mu-dialog>
+    </common-dialog>
   </div>
 </template>
 
@@ -65,6 +64,8 @@ export default {
   data () {
     return {
       secondAlert: true,
+      isShowShade: true,
+      isShowDialog: true,
       imageGroup: [
         {
         },
@@ -73,7 +74,11 @@ export default {
   },
   methods: {
     closeAlertDialog: function () {
-      this.secondAlert = false;
+
+    },
+    handleBtnClick: function () {
+      this.isShowDialog = false;
+      this.isShowShade = false;
     }
   },
   computed: {
@@ -97,6 +102,12 @@ export default {
         height: 500px;
         overflow-y: auto;
       }
+    }
+
+    .button-start {
+      float: right;
+      margin-right: 20px;
+      margin-top: 40px;
     }
   }
 

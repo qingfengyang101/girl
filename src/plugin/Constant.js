@@ -18,6 +18,8 @@ const Constant = {
   WIFE_LIKE_EAT_FOOD: '麻辣尚席',
   WIFE_BOY: '许英豪',
   WOMAN: 1,
+  WIFE_BOARD_MESSAGE_COLS: 30,
+  WIFE_BOARD_MESSAGE_ROWS: 3,
 
   /** css opacity **/
   OVERLAY_OPACITY: 0.7,

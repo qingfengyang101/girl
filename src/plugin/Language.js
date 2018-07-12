@@ -38,7 +38,7 @@ let Language = {
   HOLDER_WIFE_TELEPHONE: '输入小公主电话',
   HOLDER_WIFE_HOBBY_BASE: '美食， 旅游',
   HOLDER_WIFE_HOBBY_BASE_SEND_MESSAGE: '亲， 你想对小公主说些什么呢？请写下来了吧！',
-  HOLDER_WIFE_HOBBY_BASE_SEND_MESSAGE_TITLE: '亲， 请输入你的心里话',
+  HOLDER_WIFE_HOBBY_BASE_SEND_MESSAGE_TITLE: '亲， 请输入你的心里话.......',
 
 
   /** title **/

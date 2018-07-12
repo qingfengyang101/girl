@@ -224,11 +224,16 @@
 
                   </mu-list-item>
                 </mu-list>
-                <textarea
-                  style="width: 100%; height: 200px; margin-left: 10px;"
-                  :placeholder="$LanguageMap.HOLDER_WIFE_HOBBY_BASE_SEND_MESSAGE_TITLE"
-                >
-                </textarea>
+                  <textarea
+                    style="width: 100%; height: 200px; margin-left: 10px; padding: 20px 20px;
+                     border-color: #2196f3; outline: none; color: #2196f3;"
+                    :placeholder="$LanguageMap.HOLDER_WIFE_HOBBY_BASE_SEND_MESSAGE_TITLE"
+                    v-model="wifeBoardMessage"
+                    :cols="$constant.WIFE_BOARD_MESSAGE_COLS"
+                    :rows="$constant.WIFE_BOARD_MESSAGE_ROWS"
+                    @keyup="wifeBoardMessageUp"
+                  >
+                  </textarea>
               </mu-bottom-sheet>
             </div>
           </div>
@@ -239,7 +244,6 @@
       <!-- 弹框提示 -->
       <common-dialog
           :title="$LanguageMap.DIALOG_TITLE_TIP_GO"
-          dialogContentClass="login-dialog-content-style"
           :dialogContentText="$LanguageMap.DIALOG_OVERLAY_CLOSE_MESSAGE"
           :showShade="isShowShade"
           :showDialog="isShowDialog"
@@ -294,7 +298,8 @@
           isShowShade: true,
           isShowDialog: true,
           panel: '',
-          openBottomSheetFlag: null
+          openBottomSheetFlag: null,
+          wifeBoardMessage: ''
         }
       },
       methods: {
@@ -343,14 +348,19 @@
         },
         openSheet: function () {
           this.openBottomSheetFlag = true;
+          this.wifeBoardMessage = window.localStorage.getItem('borderMessage');
         },
         closeSheet: function () {
-
         },
         closeSuccessDialog: function () {
           this.$router.push({
             path: '/home'
           });
+        },
+        wifeBoardMessageUp: function () {
+          window.localStorage.setItem(
+            'borderMessage', this.wifeBoardMessage
+          );
         }
       },
       computed: {
@@ -375,7 +385,6 @@
         }
       },
       watch: {
-
       }
     }
 </script>
@@ -402,21 +411,11 @@
       background-color: #0eb3fc;
     }
 
-    .login-dialog-content-style {
-      width: 300px;
-      color: @color-ffffff;
-      font-size: 16px;
-      padding-left: 12px;
-      padding-right: 12px;
-      text-overflow: ellipsis;
-      overflow: hidden;
-      white-space: nowrap;
-    }
 
     .button-start {
       float: right;
       margin-right: 20px;
-      margin-top: 20px;
+      margin-top: 40px;
     }
 
     .img-box {
