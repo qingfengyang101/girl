@@ -13,6 +13,7 @@
     "lodash": "^4.17.10",
     "muse-ui": "^3.0.0-rc.4",
     "vue": "^2.5.2",
+    "vue-aplayer": "^1.6.1",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {

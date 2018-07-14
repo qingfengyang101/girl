@@ -7,6 +7,7 @@
 
 const Constant = {
   WIFE_NAME: '赵换敏',
+  WIFE_NAME_TODAY: '小公主',
   WIFE_SEX: '女',
   WIFE_AGE: 26,
 
@@ -27,6 +28,8 @@ const Constant = {
 
   /** date **/
   WIFE_BIRTHDAY_DATE: 28,
+  WIFE_BOY_LOVE_DATE: 9,
+  WIFE_BOY_LOVE_MONTH: 3,
   WIFE_BIRTHDAY_MONTH: 6,
 
   /** transition  **/
