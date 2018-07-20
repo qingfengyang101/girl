@@ -1,14 +1,10 @@
 <template>
   <div class="wife">
-    <common-player
-      autoplay
-      :music = "{
-        title: 'Preparation',
-        artist: 'Hans Zimmer/Richard Harvey',
-        src: '../assets/audio/wife_brithday.mp3',
-      }"
-    >
-    </common-player>
+    <div v-if="isShowFireOrInfo">
+      <common-info></common-info>
+      <audio :src="WifeAudio" loop autoplay v-if="WifeAudio"></audio>
+      <common-fire></common-fire>
+    </div>
     <!-- 成功闯关弹框提示 -->
     <common-dialog
       :title="$LanguageMap.DIALOG_TITLE_SUCCESS_TIP_LAST_BOY"
@@ -30,12 +26,12 @@
 
 <script>
     import WifeAudio from '../assets/audio/wife_brithday.mp3';
-    import commonPlayer from 'vue-aplayer';
+    import CommonInfo from "./commonComponents/commonInfo";
 
     export default {
       name: "Wife",
       components: {
-        commonPlayer
+        CommonInfo
       },
       data () {
         return {
@@ -49,15 +45,27 @@
           this.isShowShade = false;
           this.isShowDialog = false;
         }
+      },
+      mounted (){
+
+      },
+      watch:{
+      },
+      computed: {
+        isShowFireOrInfo () {
+          return (!this.isShowDialog && !this.isShowShade);
+        }
       }
 
     }
 </script>
 
 <style scoped lang="less">
+  @import "../assets/common_variable";
   .wife {
     width: 100%;
-    height: 100%;
+    height: 793px;
+    background-color: @color-2196f3;
 
     .button-start {
       float: right;
