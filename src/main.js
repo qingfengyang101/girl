@@ -12,6 +12,7 @@ import * as commonComponentMap from './components/commonComponents/index';
 import MuseUI from './external/index';
 import Lodash from './external/lodash';
 import store from './store/index.js';
+import i18n from './plugin/Language/PMLanguage';
 
 Vue.prototype.$lodash = Lodash;
 
@@ -21,11 +22,13 @@ Vue.use(MuseUI);
 
 Vue.config.productionTip = false;
 
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
   store,
+  i18n,
   components: { App },
   template: '<App/>'
 })

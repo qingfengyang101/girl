@@ -5,7 +5,7 @@
 */
 export default {
   state: {
-    answerQ: 'yinghao'
+    answerQ: ''
   },
 
   getters: {

@@ -18,8 +18,5 @@
      })
    })
 
-   it('dialogContentText should be string ', function () {
-     expect((loginCmp.vm.dialogContentText)).toBe(false);
-   });
  });
 

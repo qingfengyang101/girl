@@ -243,7 +243,7 @@
 
       <!-- 弹框提示 -->
       <common-dialog
-          :title="$LanguageMap.DIALOG_TITLE_TIP_GO"
+          :title="getLang('DIALOG_TITLE_TIP_GO')"
           :dialogContentText="$LanguageMap.DIALOG_OVERLAY_CLOSE_MESSAGE"
           :showShade="isShowShade"
           :showDialog="isShowDialog"

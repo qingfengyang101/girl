@@ -1,9 +1,10 @@
+
 /**
  *  project of language common
  *  author: xuyinghao
  *  Date: 2018/6/30 13: 52
  */
-let Language = {
+const cn = {
 
   /** label **/
   LABEL_MY_WIFE_NAME: '赵换敏',
@@ -109,19 +110,5 @@ let Language = {
   WIFE_BOY_LOVE_DATE_ERROR_TEXT: '终极问题：亲， 你的选择错误！ 请仔细回想哦！'
 }
 
-const LanguageMap = {}
+export default cn;
 
-const LanguageInstall = {
-  install (Vue) {
-    for (let key in Language) {
-      if (Language.hasOwnProperty(key)) {
-        LanguageMap[key] = Language[key];
-      }
-    }
-
-    Vue.prototype.$LanguageMap = LanguageMap;
-  }
-};
-
-export default LanguageInstall;
-export const install = LanguageInstall.install;

@@ -1,7 +1,6 @@
 <template>
   <div class="wife">
     <div v-if="isShowFireOrInfo">
-      <common-info></common-info>
       <audio :src="WifeAudio" loop autoplay v-if="WifeAudio"></audio>
       <common-fire></common-fire>
     </div>
@@ -47,7 +46,6 @@
         }
       },
       mounted (){
-
       },
       watch:{
       },
