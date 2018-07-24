@@ -7,9 +7,9 @@
         <mu-button icon slot="left">
           <mu-icon value="menu"></mu-icon>
         </mu-button>
-        {{ $LanguageMap.LABEL_TITLE_BREAKTHROUGH_LAST_QUESTION }}
+        {{ $t('LABEL_TITLE_BREAKTHROUGH_LAST_QUESTION') }}
         <mu-button flat slot="right">
-          {{ $LanguageMap.LABEL_LOGIN }}
+          {{ $t('LABEL_LOGIN') }}
         </mu-button>
       </mu-appbar>
       <!-- 右面展示 -->
@@ -27,45 +27,45 @@
           </div>
           <!-- 具体内容 -->
           <div class="wife-info-text-content">
-            <h4 class="message-board"> {{ $LanguageMap.LABEL_MY_WIFE_MESSAGE_BOARD }}</h4>
+            <h4 class="message-board"> {{ $t('LABEL_MY_WIFE_MESSAGE_BOARD') }}</h4>
             <mu-text-field
-              v-model="$LanguageMap.HOLDER_WIFE_HOBBY_BASE"
+              v-model="wifeHobby"
               full-width
               style="color: #2196f3;"
             >
-              {{ $LanguageMap.LABEL_WIFE_BASE_INFO }}
+              {{ $t('LABEL_WIFE_BASE_INFO') }}
             </mu-text-field>
             <mu-text-field
-              v-model="$LanguageMap.LABEL_WIFE_CONSTELLATION"
+              v-model="wifeConstellation"
               full-width
               class="demo-divider-form"
               style="color: #2196f3;"
             >
-              {{ $LanguageMap.LABEL_WIFE_BASE_INFO_CONSTELLATION }}
+              {{ $t('LABEL_WIFE_BASE_INFO_CONSTELLATION') }}
             </mu-text-field>
             <mu-text-field
-              v-model="$LanguageMap.LABEL_WIFE_BASE_INFO_BLOOD_TYPE"
+              v-model="wifeBoolType"
               full-width
               class="demo-divider-form"
               style="color: #2196f3;"
             >
-              {{ $LanguageMap.LABEL_WIFE_BASE_INFO_BLOOD }}
+              {{ $t('LABEL_WIFE_BASE_INFO_BLOOD') }}
             </mu-text-field>
             <mu-text-field
-              v-model="$LanguageMap.LABEL_WIFE_BASE_INFO_WIFE_HOMETOWN"
+              v-model="wifeHometown"
               full-width
               class="demo-divider-form"
               style="color: #2196f3;"
             >
-              {{ $LanguageMap.LABEL_WIFE_BASE_INFO_HOMETOWN }}
+              {{ $t('LABEL_WIFE_BASE_INFO_HOMETOWN') }}
             </mu-text-field>
             <mu-text-field
-              v-model="$LanguageMap.LABEL_WIFE_BASE_INFO_WIFE_LOVE"
+              v-model="wifeLove"
               full-width
               class="demo-divider-form"
               style="color: #2196f3;"
             >
-              {{ $LanguageMap.LABEL_WIFE_BASE_INFO_LOVE }}
+              {{ $t('LABEL_WIFE_BASE_INFO_LOVE') }}
             </mu-text-field>
           </div>
 
@@ -82,37 +82,37 @@
           </div>
           <!-- 具体内容 -->
           <div class="wife-info-text-content">
-            <h4 class="message-board"> {{ $LanguageMap.LABEL_WIFE_BASE_INFO_SIGNATURE }}</h4>
+            <h4 class="message-board"> {{ $t('LABEL_WIFE_BASE_INFO_SIGNATURE') }}</h4>
             <mu-text-field
-              v-model="$LanguageMap.LABEL_WIFE_BASE_INFO_LIKE_WORDS"
+              v-model="wifeLikeWords"
               full-width
               style="color: #2196f3;"
             >
-              {{ $LanguageMap.LABEL_WIFE_BASE_INFO_WORDS }}
+              {{ $t('LABEL_WIFE_BASE_INFO_WORDS') }}
             </mu-text-field>
             <mu-text-field
-              v-model="$LanguageMap.LABEL_WIFE_BASE_INFO_WIFE_APHORISM"
+              v-model="wifeAphorism"
               full-width
               class="demo-divider-form"
               style="color: #2196f3;"
             >
-              {{ $LanguageMap.LABEL_WIFE_BASE_INFO_APHORISM }}
+              {{ $t('LABEL_WIFE_BASE_INFO_APHORISM') }}
             </mu-text-field>
             <mu-text-field
-              v-model="$LanguageMap.LABEL_WIFE_BASE_INFO_WIFE_LIKE_LOVE"
+              v-model="wifeLikeLove"
               full-width
               class="demo-divider-form"
               style="color: #2196f3;"
             >
-              {{ $LanguageMap.LABEL_WIFE_BASE_INFO_LIKE_LOVE }}
+              {{ $t('LABEL_WIFE_BASE_INFO_LIKE_LOVE') }}
             </mu-text-field>
             <mu-text-field
-              v-model="$LanguageMap.LABEL_WIFE_BASE_INFO_WIFE_LIFE"
+              v-model="wifeLife"
               full-width
               class="demo-divider-form"
               style="color: #2196f3;"
             >
-              {{ $LanguageMap.LABEL_WIFE_BASE_INFO_LIKE_LIFE }}
+              {{ $t('LABEL_WIFE_BASE_INFO_LIKE_LIFE') }}
             </mu-text-field>
           </div>
         </mu-expansion-panel>
@@ -128,7 +128,7 @@
           </div>
           <!-- 留言板 -->
           <div class="wife-info-text-content">
-            <h4 class="message-board"> {{ $LanguageMap.LABEL_WIFE_BASE_INFO_SEND_MESSAGE_BORD }}</h4>
+            <h4 class="message-board"> {{ $t('LABEL_WIFE_BASE_INFO_SEND_MESSAGE_BORD') }}</h4>
             <div class="send-message-bord">
               <mu-button
                 large fab
@@ -139,13 +139,13 @@
                 <mu-icon value="edit"></mu-icon>
               </mu-button>
               <span style="vertical-align: middle; margin-left: 20px">
-                {{ $LanguageMap.BTN_SEND_MESSAGE }}
+                {{ $t('BTN_SEND_MESSAGE') }}
               </span>
               <!-- 底部显示区 -->
               <mu-bottom-sheet :open.sync="openBottomSheetFlag">
                 <mu-list @item-click="closeSheet">
                   <mu-sub-header>
-                    {{ $LanguageMap.HOLDER_WIFE_HOBBY_BASE_SEND_MESSAGE }}
+                    {{ $t('HOLDER_WIFE_HOBBY_BASE_SEND_MESSAGE') }}
                   </mu-sub-header>
                   <mu-list-item button>
                     <mu-list-item-action>
@@ -159,7 +159,7 @@
                 <textarea
                   style="width: 100%; height: 200px; margin-left: 10px; padding: 20px 20px;
                      border-color: #2196f3; outline: none; color: #2196f3;"
-                  :placeholder="$LanguageMap.HOLDER_WIFE_HOBBY_BASE_SEND_MESSAGE_TITLE"
+                  :placeholder="getLang('HOLDER_WIFE_HOBBY_BASE_SEND_MESSAGE_TITLE')"
                   v-model="wifeBoardMessage"
                   :cols="$constant.WIFE_BOARD_MESSAGE_COLS"
                   :rows="$constant.WIFE_BOARD_MESSAGE_ROWS"
@@ -192,14 +192,14 @@
 
       <div class="wife-last-question-warp">
         <!-- 提问区 -->
-        <h3 style="text-align: center; margin-top: 50px; color: #2196f3;">{{ $LanguageMap.LABEL_WIFE_BASE_INFO_LAST_QUESTION }}</h3>
+        <h3 style="text-align: center; margin-top: 50px; color: #2196f3;">{{ $t('LABEL_WIFE_BASE_INFO_LAST_QUESTION') }}</h3>
         <mu-date-input
           v-model="wifeBoyLiveDate"
-          :label="$LanguageMap.LABEL_MY_WIFE_LIVE_DATE"
+          :label="getLang('LABEL_MY_WIFE_LIVE_DATE')"
           icon="today"
           :errorText="wifeBoyLiveDateErrorText"
           @input="handleWifeBoyLiveDate"
-          :format="$LanguageMap.FORMAT_TIME"
+          :format="getLang('FORMAT_TIME')"
           label-float
           style="width: 560px; display: block; margin-left: 255px;"
         >
@@ -211,13 +211,13 @@
           class="btn-submit-style"
           :disabled="LastQuestionDisabled"
         >
-          {{ $LanguageMap.BTN_SUBMIT_ANSWER }}
+          {{ $t('BTN_SUBMIT_ANSWER') }}
         </mu-button>
       </div>
       <!-- 成功闯关弹框提示 -->
       <common-dialog
-        :title="$LanguageMap.DIALOG_TITLE_SUCCESS_TIP_LAST_BOY"
-        :dialogContentText="$LanguageMap.DIALOG_OVERLAY_OVERLAY_CLOSE_MESSAGE_LAST"
+        :title="getLang('DIALOG_TITLE_SUCCESS_TIP_LAST_BOY')"
+        :dialogContentText="getLang('DIALOG_OVERLAY_OVERLAY_CLOSE_MESSAGE_LAST')"
         :showShade="isShowShade"
         :showDialog="isShowDialog"
         @handleBtnClick="handleBtnClick"
@@ -227,7 +227,7 @@
           @click="handleBtnClick"
           class="button-start"
         >
-          {{ $LanguageMap.BTN_GO }}
+          {{ $t('BTN_GO') }}
         </mu-button>
       </common-dialog>
     </div>
@@ -255,6 +255,17 @@
           wifeBoyLiveDateErrorText: '',
           isShowShade: true,
           isShowDialog: true,
+          wifeHobby: this.$t('HOLDER_WIFE_HOBBY_BASE'),
+          wifeConstellation: this.$t('LABEL_WIFE_CONSTELLATION'),
+          wifeBoolType: this.$t('LABEL_WIFE_BASE_INFO_BLOOD_TYPE'),
+          wifeHometown: this.$t('LABEL_WIFE_BASE_INFO_WIFE_HOMETOWN'),
+          wifeLove: this.$t('LABEL_WIFE_BASE_INFO_WIFE_LOVE'),
+          wifeLikeWords: this.$t('LABEL_WIFE_BASE_INFO_LIKE_WORDS'),
+          wifeAphorism: this.$t('LABEL_WIFE_BASE_INFO_WIFE_APHORISM'),
+          wifeLikeLove: this.$t('LABEL_WIFE_BASE_INFO_WIFE_LIKE_LOVE'),
+          wifeLife: this.$t('LABEL_WIFE_BASE_INFO_WIFE_LIFE'),
+
+
         }
       },
       methods: {
@@ -276,7 +287,7 @@
         handleWifeBoyLiveDate: function () {
           this.handleFormatDate(this.wifeBoyLiveDate)
             ? this.wifeBoyLiveDateErrorText = ''
-            : this.wifeBoyLiveDateErrorText = this.$LanguageMap.WIFE_BOY_LOVE_DATE_ERROR_TEXT
+            : this.wifeBoyLiveDateErrorText = this.$t('WIFE_BOY_LOVE_DATE_ERROR_TEXT');
         },
         handleFormatDate: function (date) {
           let wifeBirthdayDateGet = parseInt(date.getDate());

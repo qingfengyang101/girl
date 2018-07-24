@@ -8,9 +8,9 @@
         <mu-button icon slot="left">
           <mu-icon value="menu"></mu-icon>
         </mu-button>
-          {{ $LanguageMap.LABEL_TITLE_BREAKTHROUGH }}
+          {{ $t('LABEL_TITLE_BREAKTHROUGH') }}
         <mu-button flat slot="right">
-          {{ $LanguageMap.LABEL_LOGIN }}
+          {{ $t('LABEL_LOGIN') }}
         </mu-button>
       </mu-appbar>
       <!-- 答题部分 -->
@@ -19,7 +19,7 @@
         <div class="login-wife-warp">
           <mu-text-field
             v-model="wifeName"
-            :placeholder="$LanguageMap.HOLDER_WIFE_NAME"
+            :placeholder="getLang('HOLDER_WIFE_NAME')"
             icon="comment"
             :errorText="wifeNameErrorText"
             @blur="handleWifeNameBlur"
@@ -28,7 +28,7 @@
           </mu-text-field>
           <mu-text-field
             v-model="wifeTelephone"
-            :placeholder="$LanguageMap.HOLDER_WIFE_TELEPHONE"
+            :placeholder="getLang('HOLDER_WIFE_TELEPHONE')"
             icon="phone"
             type="number"
             :errorText="wifeTelephoneErrorText"
@@ -39,7 +39,7 @@
 
             <mu-text-field
               v-model="wifeEatFood"
-              :placeholder="$LanguageMap.LABEL_WIFE_LIKE_FOOD"
+              :placeholder="getLang('LABEL_WIFE_LIKE_FOOD')"
               icon="room"
               :errorText="wifeEatFoodErrorText"
               @blur="handleWifeEatFoodBlur"
@@ -48,7 +48,7 @@
             </mu-text-field>
             <mu-text-field
               v-model="wifeBoy"
-              :placeholder="$LanguageMap.LABEL_WIFE_BOY"
+              :placeholder="getLang('LABEL_WIFE_BOY')"
               :errorText="wifeBoyErrorText"
               @blur="handleWifeBoyBlur"
               icon="favorite"
@@ -58,11 +58,11 @@
           <!-- 生日日期 -->
           <mu-date-input
             v-model="wifeBirthdayDate"
-            :label="$LanguageMap.LABEL_MY_WIFE_BIRTHDAY_DATE"
+            :label="getLang('LABEL_MY_WIFE_BIRTHDAY_DATE')"
             icon="today"
             :errorText="wifeBirthdayDateErrorText"
             @input="handleWifeBirthdayDate"
-            :format="$LanguageMap.FORMAT_TIME"
+            :format="getLang('FORMAT_TIME')"
             label-float
             fullWidth
           >
@@ -75,7 +75,7 @@
             class="btn-submit-style"
             :disabled="loginDisabled"
           >
-            {{ $LanguageMap.BTN_SUBMIT_ANSWER }}
+            {{ $t('BTN_SUBMIT_ANSWER') }}
           </mu-button>
         </div>
       </div>
@@ -95,45 +95,45 @@
           </div>
           <!-- 具体内容 -->
           <div class="wife-info-text-content">
-            <h4 class="message-board"> {{ $LanguageMap.LABEL_MY_WIFE_MESSAGE_BOARD }}</h4>
+            <h4 class="message-board"> {{ $t('LABEL_MY_WIFE_MESSAGE_BOARD') }}</h4>
             <mu-text-field
-              v-model="$LanguageMap.HOLDER_WIFE_HOBBY_BASE"
+              v-model="wifeHobby"
               full-width
               style="color: #2196f3;"
             >
-              {{ $LanguageMap.LABEL_WIFE_BASE_INFO }}
+              {{ $t('LABEL_WIFE_BASE_INFO') }}
             </mu-text-field>
             <mu-text-field
-              v-model="$LanguageMap.LABEL_WIFE_CONSTELLATION"
+              v-model="wifeConstellation"
               full-width
               class="demo-divider-form"
               style="color: #2196f3;"
             >
-              {{ $LanguageMap.LABEL_WIFE_BASE_INFO_CONSTELLATION }}
+              {{ $t('LABEL_WIFE_BASE_INFO_CONSTELLATION') }}
             </mu-text-field>
             <mu-text-field
-              v-model="$LanguageMap.LABEL_WIFE_BASE_INFO_BLOOD_TYPE"
+              v-model="wifeBloodType"
               full-width
               class="demo-divider-form"
               style="color: #2196f3;"
             >
-              {{ $LanguageMap.LABEL_WIFE_BASE_INFO_BLOOD }}
+              {{ $t('LABEL_WIFE_BASE_INFO_BLOOD') }}
             </mu-text-field>
             <mu-text-field
-              v-model="$LanguageMap.LABEL_WIFE_BASE_INFO_WIFE_HOMETOWN"
+              v-model="wifeHometown"
               full-width
               class="demo-divider-form"
               style="color: #2196f3;"
             >
-              {{ $LanguageMap.LABEL_WIFE_BASE_INFO_HOMETOWN }}
+              {{ $t('LABEL_WIFE_BASE_INFO_HOMETOWN') }}
             </mu-text-field>
             <mu-text-field
-              v-model="$LanguageMap.LABEL_WIFE_BASE_INFO_WIFE_LOVE"
+              v-model="wifeLove"
               full-width
               class="demo-divider-form"
               style="color: #2196f3;"
             >
-              {{ $LanguageMap.LABEL_WIFE_BASE_INFO_LOVE }}
+              {{ $t('LABEL_WIFE_BASE_INFO_LOVE') }}
             </mu-text-field>
           </div>
 
@@ -150,37 +150,37 @@
           </div>
           <!-- 具体内容 -->
           <div class="wife-info-text-content">
-            <h4 class="message-board"> {{ $LanguageMap.LABEL_WIFE_BASE_INFO_SIGNATURE }}</h4>
+            <h4 class="message-board"> {{ $t('LABEL_WIFE_BASE_INFO_SIGNATURE') }}</h4>
             <mu-text-field
-              v-model="$LanguageMap.LABEL_WIFE_BASE_INFO_LIKE_WORDS"
+              v-model="wifeLikeWords"
               full-width
               style="color: #2196f3;"
             >
-              {{ $LanguageMap.LABEL_WIFE_BASE_INFO_WORDS }}
+              {{ $t('LABEL_WIFE_BASE_INFO_WORDS') }}
             </mu-text-field>
             <mu-text-field
-              v-model="$LanguageMap.LABEL_WIFE_BASE_INFO_WIFE_APHORISM"
+              v-model="wifeAphorism"
               full-width
               class="demo-divider-form"
               style="color: #2196f3;"
             >
-              {{ $LanguageMap.LABEL_WIFE_BASE_INFO_APHORISM }}
+              {{ $t('LABEL_WIFE_BASE_INFO_APHORISM') }}
             </mu-text-field>
             <mu-text-field
-              v-model="$LanguageMap.LABEL_WIFE_BASE_INFO_WIFE_LIKE_LOVE"
+              v-model="wifeLikeLove"
               full-width
               class="demo-divider-form"
               style="color: #2196f3;"
             >
-              {{ $LanguageMap.LABEL_WIFE_BASE_INFO_LIKE_LOVE }}
+              {{ $t('LABEL_WIFE_BASE_INFO_LIKE_LOVE') }}
             </mu-text-field>
             <mu-text-field
-              v-model="$LanguageMap.LABEL_WIFE_BASE_INFO_WIFE_LIFE"
+              v-model="wifeLife"
               full-width
               class="demo-divider-form"
               style="color: #2196f3;"
             >
-              {{ $LanguageMap.LABEL_WIFE_BASE_INFO_LIKE_LIFE }}
+              {{ $t('LABEL_WIFE_BASE_INFO_LIKE_LIFE') }}
             </mu-text-field>
           </div>
         </mu-expansion-panel>
@@ -196,7 +196,7 @@
           </div>
           <!-- 留言板 -->
           <div class="wife-info-text-content">
-            <h4 class="message-board"> {{ $LanguageMap.LABEL_WIFE_BASE_INFO_SEND_MESSAGE_BORD }}</h4>
+            <h4 class="message-board"> {{ $t('LABEL_WIFE_BASE_INFO_SEND_MESSAGE_BORD') }}</h4>
             <div class="send-message-bord">
               <mu-button
                 large fab
@@ -207,13 +207,13 @@
                 <mu-icon value="edit"></mu-icon>
               </mu-button>
               <span style="vertical-align: middle; margin-left: 20px">
-                {{ $LanguageMap.BTN_SEND_MESSAGE }}
+                {{ $t('BTN_SEND_MESSAGE') }}
               </span>
               <!-- 底部显示区 -->
               <mu-bottom-sheet :open.sync="openBottomSheetFlag">
                 <mu-list @item-click="closeSheet">
                   <mu-sub-header>
-                    {{ $LanguageMap.HOLDER_WIFE_HOBBY_BASE_SEND_MESSAGE }}
+                    {{ $t('HOLDER_WIFE_HOBBY_BASE_SEND_MESSAGE') }}
                   </mu-sub-header>
                   <mu-list-item button>
                     <mu-list-item-action>
@@ -227,7 +227,7 @@
                   <textarea
                     style="width: 100%; height: 200px; margin-left: 10px; padding: 20px 20px;
                      border-color: #2196f3; outline: none; color: #2196f3;"
-                    :placeholder="$LanguageMap.HOLDER_WIFE_HOBBY_BASE_SEND_MESSAGE_TITLE"
+                    :placeholder="getLang('HOLDER_WIFE_HOBBY_BASE_SEND_MESSAGE_TITLE')"
                     v-model="wifeBoardMessage"
                     :cols="$constant.WIFE_BOARD_MESSAGE_COLS"
                     :rows="$constant.WIFE_BOARD_MESSAGE_ROWS"
@@ -244,7 +244,7 @@
       <!-- 弹框提示 -->
       <common-dialog
           :title="getLang('DIALOG_TITLE_TIP_GO')"
-          :dialogContentText="$LanguageMap.DIALOG_OVERLAY_CLOSE_MESSAGE"
+          :dialogContentText="getLang('DIALOG_OVERLAY_CLOSE_MESSAGE')"
           :showShade="isShowShade"
           :showDialog="isShowDialog"
           @handleBtnClick="handleBtnClick"
@@ -254,12 +254,43 @@
             @click="handleBtnClick"
             class="button-start"
           >
-            {{ $LanguageMap.BTN_GO }}
+            {{ $t('BTN_GO') }}
           </mu-button>
+          <mu-menu
+            placement="top-start"
+            open-on-hover
+            class="button-start"
+          >
+            <mu-button
+              color="primary"
+            >
+              {{ $t('BTN_CHANGE_LANGUAGE') }}
+            </mu-button>
+            <mu-list slot="content">
+              <mu-list-item
+                @click="handleChangeLanguageChinese"
+                button
+              >
+                <mu-list-item-title
+                >
+                  {{ $t('BTN_LANGUAGE_CHINESE') }}
+                </mu-list-item-title>
+              </mu-list-item>
+              <mu-list-item
+                button
+                @click="handleChangeLanguageEnglish"
+              >
+                <mu-list-item-title
+                >
+                  {{ $t('BTN_LANGUAGE_ENGLISH') }}
+                </mu-list-item-title>
+              </mu-list-item>
+            </mu-list>
+          </mu-menu>
         </common-dialog>
       <!-- 成功闯关弹框提示 -->
       <mu-dialog
-        :title="$LanguageMap.DIALOG_TITLE_SUCCESS_TIP"
+        :title="getLang('DIALOG_TITLE_SUCCESS_TIP')"
         :esc-press-close="false"
         :overlayClose="openSuccess"
         :open.sync="openSuccess"
@@ -267,10 +298,10 @@
         transition="slide-top"
         :overlayOpacity="$constant.OVERLAY_OPACITY"
       >
-        {{ $LanguageMap.DIALOG_OVERLAY_CLOSE_MESSAGE }}
+        {{ $t('DIALOG_OVERLAY_CLOSE_MESSAGE') }}
 
         <mu-button slot="actions" flat color="primary" @click="closeSuccessDialog">
-          {{ $LanguageMap.BTN_GO }}
+          {{ $t('BTN_GO') }}
         </mu-button>
       </mu-dialog>
     </div>
@@ -299,7 +330,16 @@
           isShowDialog: true,
           panel: '',
           openBottomSheetFlag: null,
-          wifeBoardMessage: ''
+          wifeBoardMessage: '',
+          wifeHobby: this.$t('HOLDER_WIFE_HOBBY_BASE'),
+          wifeConstellation: this.$t('LABEL_WIFE_CONSTELLATION'),
+          wifeBloodType: this.$t('LABEL_WIFE_BASE_INFO_BLOOD_TYPE'),
+          wifeHometown: this.$t('LABEL_WIFE_BASE_INFO_WIFE_HOMETOWN'),
+          wifeLove: this.$t('LABEL_WIFE_BASE_INFO_WIFE_LOVE'),
+          wifeLikeWords: this.$t('LABEL_WIFE_BASE_INFO_LIKE_WORDS'),
+          wifeAphorism: this.$t('LABEL_WIFE_BASE_INFO_WIFE_APHORISM'),
+          wifeLikeLove: this.$t('LABEL_WIFE_BASE_INFO_WIFE_LIKE_LOVE'),
+          wifeLife: this.$t('LABEL_WIFE_BASE_INFO_WIFE_LIFE'),
         }
       },
       methods: {
@@ -361,6 +401,12 @@
           window.localStorage.setItem(
             'borderMessage', this.wifeBoardMessage
           );
+        },
+        handleChangeLanguageChinese: function () {
+            this.$i18n.locale = 'cn';
+        },
+        handleChangeLanguageEnglish: function () {
+          this.$i18n.locale = 'en';
         }
       },
       computed: {
@@ -394,7 +440,7 @@
 
   .login-warp {
     width: 100%;
-    height: 1014px;
+    height: 900px;
 
     .title-message-style {
       width: 100%;
@@ -449,7 +495,7 @@
     }
 
     .right-show-wife {
-      width: 350px;
+      width: 400px;
       height: 100%;
       background-color: @color-ffffff;
       box-shadow: 0 8px 10px -5px rgba(0,0,0,.2), 0 16px 24px 2px rgba(0,0,0,.14), 0 6px 30px 5px rgba(0,0,0,.12);

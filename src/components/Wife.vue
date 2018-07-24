@@ -1,13 +1,14 @@
 <template>
   <div class="wife">
     <div v-if="isShowFireOrInfo">
+      <common-info></common-info>
       <audio :src="WifeAudio" loop autoplay v-if="WifeAudio"></audio>
       <common-fire></common-fire>
     </div>
     <!-- 成功闯关弹框提示 -->
     <common-dialog
-      :title="$LanguageMap.DIALOG_TITLE_SUCCESS_TIP_LAST_BOY"
-      :dialogContentText="$LanguageMap.DIALOG_OVERLAY_OVERLAY_CLOSE_MESSAGE_LAST_BOY"
+      :title="getLang('DIALOG_TITLE_SUCCESS_TIP_LAST_BOY')"
+      :dialogContentText="getLang('DIALOG_OVERLAY_OVERLAY_CLOSE_MESSAGE_LAST_BOY')"
       :showShade="isShowShade"
       :showDialog="isShowDialog"
       @handleBtnClick="handleBtnClick"
@@ -17,7 +18,7 @@
         @click="handleBtnClick"
         class="button-start"
       >
-        {{ $LanguageMap.BTN_GO_LAST }}
+        {{ $t('BTN_GO_LAST') }}
       </mu-button>
     </common-dialog>
   </div>

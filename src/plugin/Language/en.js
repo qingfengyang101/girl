@@ -42,7 +42,7 @@ const en = {
   LABEL_MY_WIFE_GIRL_FRIENDS_NAME: 'Bosom female friend',
   LABEL_MY_WIFE_BROTHER_NAME_CLASS: 'School Friend',
   LABEL_MY_WIFE_BROTHER_NAME: 'Brother',
-  LABEL_MY_WIFE_BROTHER_BIG_NAME: 'Brother',
+  LABEL_MY_WIFE_BROTHER_BIG_NAME: 'Brother BIG',
   LABEL_TITLE_BREAKTHROUGH_WORDS_TO_YOU: 'Naughty Sunshine Summer a brilliant season, with sunshine like naughty! be thankful you with me!',
   LABEL_WIFE_LAST_QUESTION: 'Dear! can you rise to the challenge ? if you success, you can get the big pleasantly!',
   LABEL_TITLE_BREAKTHROUGH_LAST_QUESTION: 'The Finally Challenge',
@@ -91,6 +91,9 @@ const en = {
   BTN_SEND_MESSAGE: 'Click the Write Message!',
   BTN_LAST_QUESTION: 'Accept the last challenge!',
   BTN_GO_LAST: 'The benediction come form husband!',
+  BTN_CHANGE_LANGUAGE: 'switch the language',
+  BTN_LANGUAGE_ENGLISH: 'English',
+  BTN_LANGUAGE_CHINESE: 'Chinese',
 
   /** question **/
   QUESTION_WIFE_FATHER_WHO: 'Ask you , who the handsome boy of the photo for the princess ?   choice your answer!',

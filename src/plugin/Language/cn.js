@@ -91,6 +91,9 @@ const cn = {
   BTN_SEND_MESSAGE: '点击留言',
   BTN_LAST_QUESTION: '接受最后挑战！',
   BTN_GO_LAST: '老公的祝福',
+  BTN_CHANGE_LANGUAGE: 'switch the language',
+  BTN_LANGUAGE_CHINESE: '中文',
+  BTN_LANGUAGE_ENGLISH: 'English',
 
   /** question **/
   QUESTION_WIFE_FATHER_WHO: '请问，照片中的帅大叔， 是小公主的谁？仔细看哦, 选中你心中的答案。',

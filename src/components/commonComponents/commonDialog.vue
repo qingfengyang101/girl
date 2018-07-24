@@ -18,7 +18,7 @@
               <mu-button icon slot="left">
                 <mu-icon value="menu"></mu-icon>
               </mu-button>
-              {{ $LanguageMap.DIALOG_TITLE_TIP_MESSAGE}}
+              {{ $t('DIALOG_TITLE_TIP_MESSAGE')}}
             </mu-appbar>
           </div>
           <div class="login-dialog-content-style">
@@ -100,6 +100,10 @@
       .dialog-warp {
         display: block;
         border-radius: 7px;
+
+        .button-start {
+          margin-left: 30px;
+        }
 
         .login-dialog-content-style {
           width: 500px;

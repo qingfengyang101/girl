@@ -5,9 +5,9 @@
       <mu-button icon slot="left">
         <mu-icon value="menu"></mu-icon>
       </mu-button>
-        {{ $LanguageMap.LABEL_TITLE_BREAKTHROUGH_SECOND }}
+        {{ $t('LABEL_TITLE_BREAKTHROUGH_SECOND') }}
       <mu-button flat slot="right">
-        {{ $LanguageMap.LABEL_LOGIN }}
+        {{ $t('LABEL_LOGIN') }}
       </mu-button>
     </mu-appbar>
     <!-- 主体部分 -->
@@ -18,7 +18,7 @@
               <mu-button icon slot="left">
                 <mu-icon value="menu"></mu-icon>
               </mu-button>
-              {{ $LanguageMap.TITLE_HOME_PHOTO }}
+              {{ $t('TITLE_HOME_PHOTO') }}
             </mu-appbar>
             <!-- 父母 -->
             <mu-grid-list class="home-image-list">
@@ -34,11 +34,11 @@
                 </mu-button>
               </mu-grid-tile>
               <!-- 提问 -->
-              <h4 style="margin-left: 40px;">{{ $LanguageMap.QUESTION_WIFE_FATHER_WHO }}</h4>
+              <h4 style="margin-left: 40px;">{{ $t('QUESTION_WIFE_FATHER_WHO') }}</h4>
               <!-- 选择答案 -->
               <mu-radio
                 :value="wifeFather"
-                :label="$LanguageMap.LABEL_MY_WIFE_FATHER_NAME"
+                :label="getLang('LABEL_MY_WIFE_FATHER_NAME')"
                 v-model="wifeFather"
                 @change="changeWifeFather"
                 class="common-radio"
@@ -49,7 +49,7 @@
               </mu-radio>
               <mu-radio
                 :value="wifeUncle"
-                :label="$LanguageMap.LABEL_MY_WIFE_UNCLE_NAME"
+                :label="getLang('LABEL_MY_WIFE_UNCLE_NAME')"
                 v-model="wifeUncle"
                 @change="changeWifeUncle"
                 class="common-radio"
@@ -60,7 +60,7 @@
               </mu-radio>
               <mu-radio
                 :value="wifeNeighbor"
-                :label="$LanguageMap.LABEL_MY_WIFE_NEIGHBOR_NAME"
+                :label="getLang('LABEL_MY_WIFE_NEIGHBOR_NAME')"
                 v-model="wifeNeighbor"
                 @change="changeWifeNeighbor"
                 class="common-radio"
@@ -76,7 +76,7 @@
               <mu-button icon slot="left">
                 <mu-icon value="menu"></mu-icon>
               </mu-button>
-              {{ $LanguageMap.TITLE_HOME_PHOTO }}
+              {{ $t('TITLE_HOME_PHOTO') }}
             </mu-appbar>
             <mu-grid-list class="home-image-list">
             <mu-grid-tile
@@ -91,11 +91,11 @@
               </mu-button>
             </mu-grid-tile>
             <!-- 提问 -->
-            <h4 style="margin-left: 40px;">{{ $LanguageMap.QUESTION_WIFE_SISTER_WHO }}</h4>
+            <h4 style="margin-left: 40px;">{{ $t('QUESTION_WIFE_SISTER_WHO') }}</h4>
             <!-- 选择答案 -->
             <mu-radio
               :value="wifeSisterClass"
-              :label="$LanguageMap.LABEL_MY_WIFE_SISTER_NAME_CLASS"
+              :label="getLang('LABEL_MY_WIFE_SISTER_NAME_CLASS')"
               v-model="wifeSisterClass"
               @change="changeWifeSisterClass"
               class="common-radio"
@@ -106,7 +106,7 @@
             </mu-radio>
             <mu-radio
               :value="wifeSister"
-              :label="$LanguageMap.LABEL_MY_WIFE_SISTER_NAME"
+              :label="getLang('LABEL_MY_WIFE_SISTER_NAME')"
               v-model="wifeSister"
               @change="changeWifeSister"
               class="common-radio"
@@ -117,7 +117,7 @@
             </mu-radio>
             <mu-radio
               :value="wifeGirlFriends"
-              :label="$LanguageMap.LABEL_MY_WIFE_GIRL_FRIENDS_NAME"
+              :label="getLang('LABEL_MY_WIFE_GIRL_FRIENDS_NAME')"
               v-model="wifeGirlFriends"
               @change="changeWifeGirlFriends"
               class="common-radio"
@@ -133,7 +133,7 @@
               <mu-button icon slot="left">
                 <mu-icon value="menu"></mu-icon>
               </mu-button>
-              {{ $LanguageMap.TITLE_HOME_PHOTO }}
+              {{ $t('TITLE_HOME_PHOTO') }}
             </mu-appbar>
             <mu-grid-list class="home-image-list">
               <mu-grid-tile
@@ -148,11 +148,11 @@
                 </mu-button>
               </mu-grid-tile>
               <!-- 提问 -->
-              <h4 style="margin-left: 40px;">{{ $LanguageMap.QUESTION_WIFE_BROTHER_WHO }}</h4>
+              <h4 style="margin-left: 40px;">{{ $t('QUESTION_WIFE_BROTHER_WHO') }}</h4>
               <!-- 选择答案 -->
               <mu-radio
                 :value="wifeBrotherClass"
-                :label="$LanguageMap.LABEL_MY_WIFE_BROTHER_NAME_CLASS"
+                :label="getLang('LABEL_MY_WIFE_BROTHER_NAME_CLASS')"
                 v-model="wifeBrotherClass"
                 @change="changeWifeBrotherClass"
                 class="common-radio"
@@ -163,7 +163,7 @@
               </mu-radio>
               <mu-radio
                 :value="wifeBrotherFriends"
-                :label="$LanguageMap.LABEL_MY_WIFE_BROTHER_BIG_NAME"
+                :label="getLang('LABEL_MY_WIFE_BROTHER_BIG_NAME')"
                 v-model="wifeBrotherFriends"
                 @change="changeWifeBrotherFriends"
                 class="common-radio"
@@ -174,7 +174,7 @@
               </mu-radio>
               <mu-radio
                 :value="wifeBrother"
-                :label="$LanguageMap.LABEL_MY_WIFE_BROTHER_NAME"
+                :label="getLang('LABEL_MY_WIFE_BROTHER_NAME')"
                 v-model="wifeBrother"
                 @change="changeWifeBrother"
                 class="common-radio"
@@ -194,7 +194,7 @@
             <mu-icon value="thumb_down"></mu-icon>
           </mu-button>
 
-          {{ $LanguageMap.WIFE_BIRTHDAY_PHOTO_ERROR_TEXT }}
+          {{ $t('WIFE_BIRTHDAY_PHOTO_ERROR_TEXT') }}
         </h2>
         <!-- 提交按钮 -->
         <mu-button
@@ -203,7 +203,7 @@
           class="button-start-commit"
           :disabled="commitDisabled"
         >
-          {{ $LanguageMap.BTN_SUBMIT_ANSWER }}
+          {{ $t('BTN_SUBMIT_ANSWER') }}
         </mu-button>
 
         <!-- 抽屉 -->
@@ -222,24 +222,24 @@
               </mu-avatar>
             </mu-card-header>
             <mu-card-media
-              :title="$LanguageMap.TITLE_HOME_PHOTO_SUCCESS"
-              :sub-title="$LanguageMap.TITLE_HOME_PHOTO_GOOD">
+              :title="getLang('TITLE_HOME_PHOTO_SUCCESS')"
+              :sub-title="getLang('TITLE_HOME_PHOTO_GOOD')">
               <img src="../assets/img/wife_fine.jpg">
             </mu-card-media>
             <mu-card-title
-              :title="$LanguageMap.TITLE_HOME_PHOTO_TO_YOU"
-              :sub-title="$LanguageMap.TITLE_HOME_PHOTO_TO_YOU_GOOD"
+              :title="getLang('TITLE_HOME_PHOTO_TO_YOU')"
+              :sub-title="getLang('TITLE_HOME_PHOTO_TO_YOU_GOOD')"
             >
             </mu-card-title>
             <mu-card-text>
-              {{ $LanguageMap.LABEL_TITLE_BREAKTHROUGH_WORDS_TO_YOU }}
+              {{ $t('LABEL_TITLE_BREAKTHROUGH_WORDS_TO_YOU') }}
             </mu-card-text>
             <mu-card-actions>
               <h2 style="display: flex; justify-content: flex-start;align-items: center;">
                 <mu-button color="blue" icon>
                   <mu-icon value="thumb_up"></mu-icon>
                 </mu-button>
-                {{ $LanguageMap.LABEL_WIFE_LAST_QUESTION }}
+                {{ $t('LABEL_WIFE_LAST_QUESTION') }}
               </h2>
 
               <mu-button
@@ -247,7 +247,7 @@
                 @click="handleBtnClickLastCommit"
                 style="float: right; margin-right: 20px; margin-top: 40px;"
               >
-                {{ $LanguageMap.BTN_LAST_QUESTION }}
+                {{ $t('BTN_LAST_QUESTION') }}
               </mu-button>
             </mu-card-actions>
           </mu-card>
@@ -255,8 +255,8 @@
       </div>
     <!-- 页面加载时， 弹框提示 -->
     <common-dialog
-      :title="$LanguageMap.DIALOG_TITLE_TIP_SECOND"
-      :dialogContentText="$LanguageMap.DIALOG_OVERLAY_CLOSE_MESSAGE"
+      :title="getLang('DIALOG_TITLE_TIP_SECOND')"
+      :dialogContentText="getLang('DIALOG_OVERLAY_CLOSE_MESSAGE')"
       :showShade="isShowShade"
       :showDialog="isShowDialog"
       @handleBtnClick="handleBtnClick"
@@ -266,7 +266,7 @@
            @click="handleBtnClick"
            class="button-start"
       >
-        {{ $LanguageMap.BTN_GO }}
+        {{ $t('BTN_GO') }}
       </mu-button>
     </common-dialog>
   </div>
@@ -292,37 +292,37 @@ export default {
       imageGroup: [
         {
           image: father,
-          title: this.$LanguageMap.TITLE_HOME_PHOTO_PLACE,
+          title: this.$t('TITLE_HOME_PHOTO_PLACE'),
           author: this.$constant.WIFE_NAME_TODAY
         },
 
         {
           image: mather,
-          title: this.$LanguageMap.TITLE_HOME_PHOTO_PLACE,
+          title: this.$t('TITLE_HOME_PHOTO_PLACE'),
           author: this.$constant.WIFE_NAME_TODAY
         }
       ],
       imageSisterGroup: [
         {
           image: sisterBoy,
-          title: this.$LanguageMap.TITLE_HOME_PHOTO_PLACE,
+          title: this.$t('TITLE_HOME_PHOTO_PLACE'),
           author: this.$constant.WIFE_NAME_TODAY
         },
         {
           image: sister,
-          title: this.$LanguageMap.TITLE_HOME_PHOTO_PLACE,
+          title: this.$t('TITLE_HOME_PHOTO_PLACE'),
           author: this.$constant.WIFE_NAME_TODAY
         }
       ],
       imageBrotherGroup: [
         {
           image: brother,
-          title: this.$LanguageMap.TITLE_HOME_PHOTO_PLACE,
+          title: this.$t('TITLE_HOME_PHOTO_PLACE'),
           author: this.$constant.WIFE_NAME_TODAY
         },
         {
           image: brotherTwo,
-          title: this.$LanguageMap.TITLE_HOME_PHOTO_PLACE,
+          title: this.$t('TITLE_HOME_PHOTO_PLACE'),
           author: this.$constant.WIFE_NAME_TODAY
         }
       ],
