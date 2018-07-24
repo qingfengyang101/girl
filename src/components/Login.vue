@@ -350,28 +350,28 @@
         handleWifeNameBlur: function () {
           this.wifeName === this.$constant.WIFE_NAME
                               ? this.wifeNameErrorText = ''
-                              : this.wifeNameErrorText = this.$LanguageMap.WIFE_NAME_ERROR_TEXT
+                              : this.wifeNameErrorText = this.$t('WIFE_NAME_ERROR_TEXT')
         },
         handleWifeTelephoneBlur: function () {
           (parseInt(this.wifeTelephone) === this.$constant.WIFE_TELEPHONE
                               || parseInt(this.wifeTelephone) === this.$constant.WIFE_TELEPHONE_NEW)
                                   ? this.wifeTelephoneErrorText = ''
-                                  : this.wifeTelephoneErrorText = this.$LanguageMap.WIFE_TELEPHONE_ERROR_TEXT
+                                  : this.wifeTelephoneErrorText = this.$t('WIFE_TELEPHONE_ERROR_TEXT')
         },
         handleWifeEatFoodBlur: function () {
           this.wifeEatFood === this.$constant.WIFE_LIKE_EAT_FOOD
                                   ? this.wifeEatFoodErrorText = ''
-                                  : this.wifeEatFoodErrorText = this.$LanguageMap.WIFE_LIKE_EAT_FOOD_ERROR_TEXT
+                                  : this.wifeEatFoodErrorText = this.$t('WIFE_LIKE_EAT_FOOD_ERROR_TEXT')
         },
         handleWifeBoyBlur: function () {
           this.wifeBoy === this.$constant.WIFE_BOY
                                   ? this.wifeBoyErrorText = ''
-                                  : this.wifeBoyErrorText = this.$LanguageMap.WIFE_BOY_ERROR_TEXT
+                                  : this.wifeBoyErrorText = this.$t('WIFE_BOY_ERROR_TEXT')
         },
         handleWifeBirthdayDate: function () {
           this.handleFormatDate(this.wifeBirthdayDate)
                                   ? this.wifeBirthdayDateErrorText = ''
-                                  : this.wifeBirthdayDateErrorText = this.$LanguageMap.WIFE_BIRTHDAY_DATE_ERROR_TEXT
+                                  : this.wifeBirthdayDateErrorText = this.$t('WIFE_BIRTHDAY_DATE_ERROR_TEXT')
         },
         handleFormatDate: function (date) {
           let wifeBirthdayDateGet = parseInt(date.getDate());

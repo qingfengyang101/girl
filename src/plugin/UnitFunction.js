@@ -11,7 +11,6 @@ const CommonFunc = {
    *  @return {Boolean} true, false
    */
   isWife:  function (data) {
-    console.log('是否为老师');
     return data;
   }
 

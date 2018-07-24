@@ -3,22 +3,22 @@
       <div class="container">
         <div class="balloon">
           <div>
-            <span>{{ $LanguageMap.LABEL_MY_WIFE_BIRTHDAY_WORDS_FIRST }}</span>
+            <span>{{ $t('LABEL_MY_WIFE_BIRTHDAY_WORDS_FIRST') }}</span>
           </div>
           <div>
-            <span>{{ $LanguageMap.LABEL_MY_WIFE_BIRTHDAY_WORDS_TWO }}</span>
+            <span>{{ $t('LABEL_MY_WIFE_BIRTHDAY_WORDS_TWO') }}</span>
           </div>
           <div>
-            <span>{{ $LanguageMap.LABEL_MY_WIFE_BIRTHDAY_WORDS_THREE }}</span>
+            <span>{{ $t('LABEL_MY_WIFE_BIRTHDAY_WORDS_THREE') }}</span>
           </div>
           <div>
-            <span>{{ $LanguageMap.LABEL_MY_WIFE_BIRTHDAY_WORDS_FOUR }}</span>
+            <span>{{ $t('LABEL_MY_WIFE_BIRTHDAY_WORDS_FOUR') }}</span>
           </div>
           <div>
-            <span>{{ $LanguageMap.LABEL_MY_WIFE_BIRTHDAY_WORDS_FIVE }}</span>
+            <span>{{ $t('LABEL_MY_WIFE_BIRTHDAY_WORDS_FIVE') }}</span>
           </div>
           <div>
-            <span>{{ $LanguageMap.LABEL_MY_WIFE_BIRTHDAY_WORDS_SIX }}</span>
+            <span>{{ $t('LABEL_MY_WIFE_BIRTHDAY_WORDS_SIX') }}</span>
           </div>
           </div>
         </div>
@@ -75,9 +75,11 @@
     -o-animation: balloon1 6s ease-in-out infinite;
     animation: balloon1 6s ease-in-out infinite;
   }
+
   .balloon > div:nth-child(1):before {
     color: rgba(182, 15, 97, 0.9);
   }
+
   .balloon > div:nth-child(2) {
     background: rgba(242, 112, 45, 0.9);
     left: 120px;
@@ -87,6 +89,7 @@
     -o-animation: balloon2 6s ease-in-out infinite;
     animation: balloon2 6s ease-in-out infinite;
   }
+
   .balloon > div:nth-child(2):before {
     color: rgba(242, 112, 45, 0.9);
   }

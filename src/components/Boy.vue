@@ -264,8 +264,6 @@
           wifeAphorism: this.$t('LABEL_WIFE_BASE_INFO_WIFE_APHORISM'),
           wifeLikeLove: this.$t('LABEL_WIFE_BASE_INFO_WIFE_LIKE_LOVE'),
           wifeLife: this.$t('LABEL_WIFE_BASE_INFO_WIFE_LIFE'),
-
-
         }
       },
       methods: {
