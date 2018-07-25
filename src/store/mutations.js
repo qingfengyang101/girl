@@ -5,10 +5,11 @@
  */
 
   import * as types from './mutation-types';
+  import Vue from 'vue';
 
   export default {
-    [types.GET_USER_NAME] (state, name) {
-      return state.name;
+    [types.GET_USER_NAME] (state, payload) {
+      Vue.prototype.eventBus.emit(types.GET_USER_NAME, payload)
     },
 
     [types.SET_USER_NAME] (state, name) {

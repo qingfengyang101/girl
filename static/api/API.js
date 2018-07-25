@@ -3,8 +3,9 @@
  *  author: xuyinghao
  *  Date: 2018/6/30
  */
+
 const API = {
-  'LOGIN_API': 'https://www.baidu.com'
+  LOGIN_GET_USER_NAME: '/static/api/data/LOGIN_GET_USER_NAME.json'
 }
 
 const apiMap = {}

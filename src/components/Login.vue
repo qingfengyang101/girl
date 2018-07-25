@@ -82,6 +82,18 @@
 
       <!-- 右面展示 -->
       <div class="right-show-wife">
+        <mu-appbar
+          color="primary"
+          class="title-message-style"
+        >
+          <mu-button icon slot="left">
+            <mu-icon size="36" value="favorite" color="#f06292"></mu-icon>
+          </mu-button>
+          {{ $t('LABEL_WIFE_BASE_INFO_SHOW') }}
+          <mu-button flat slot="right">
+            <mu-icon size="36" value="voicemail" color="#f06292"></mu-icon>
+          </mu-button>
+        </mu-appbar>
         <mu-expansion-panel
           :expand="panel === 'panel1'"
           @change="toggle('panel1')"
@@ -308,6 +320,7 @@
 </template>
 
 <script>
+    import {GET_USER_NAME} from '../store/mutation-types';
     export default {
       name: "Login",
       components: {
@@ -346,6 +359,7 @@
         handleBtnClick: function () {
           this.isShowShade = false;
           this.isShowDialog = false;
+          this.$store.dispatch(GET_USER_NAME);
         },
         handleWifeNameBlur: function () {
           this.wifeName === this.$constant.WIFE_NAME
@@ -407,6 +421,11 @@
         },
         handleChangeLanguageEnglish: function () {
           this.$i18n.locale = 'en';
+        },
+        handleGetUserName: function (res) {
+          if (this.$lodash.isObject(res)) {
+
+          }
         }
       },
       computed: {
@@ -431,6 +450,12 @@
         }
       },
       watch: {
+      },
+      created () {
+        this.eventBus.on(GET_USER_NAME, this.handleGetUserName)
+      },
+      beforeDestroy () {
+        this.eventBus.off(GET_USER_NAME, this.handleGetUserName);
       }
     }
 </script>
@@ -496,13 +521,13 @@
 
     .right-show-wife {
       width: 400px;
-      height: 100%;
+      height: 700px;
       background-color: @color-ffffff;
       box-shadow: 0 8px 10px -5px rgba(0,0,0,.2), 0 16px 24px 2px rgba(0,0,0,.14), 0 6px 30px 5px rgba(0,0,0,.12);
 
       position: absolute;
-      top: 80px;
-      bottom: 0;
+      top: 100px;
+      left: 20px;
 
       .common-wife-head {
         width: 100%;

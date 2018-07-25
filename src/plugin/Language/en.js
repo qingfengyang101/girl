@@ -15,6 +15,7 @@ const en = {
   LABEL_WIFE_BOY: 'Input the princess of husband for name.',
   LABEL_LOGIN: 'LOGIN',
   LABEL_WIFE_BASE_INFO: 'The princess personal hobbies',
+  LABEL_WIFE_BASE_INFO_SHOW: 'The princess personal info show',
   LABEL_MY_WIFE_MESSAGE_BOARD: 'The princess basic information.',
   LABEL_WIFE_CONSTELLATION: 'The KingCrab',
   LABEL_WIFE_BASE_INFO_CONSTELLATION: 'The constellation',

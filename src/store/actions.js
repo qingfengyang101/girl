@@ -5,9 +5,13 @@
  */
 
   import * as types from './mutation-types';
+  import * as API from '../../static/api/API';
+  import Vue from 'vue';
+  const that = Vue.prototype;
 
   export default {
-    getUserName ({commit}, {age, name}) {
-      commit(types.GET_USER_NAME, name);
+    [types.GET_USER_NAME] ({commit}, payload) {
+      that.$https.get(types.GET_USER_NAME, that.$api.LOGIN_GET_USER_NAME);
+      commit(types.GET_USER_NAME, payload);
     }
   }
