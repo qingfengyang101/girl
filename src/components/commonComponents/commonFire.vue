@@ -156,8 +156,8 @@
     <rect x="10" y="475.571" fill="#fefae9" width="180" height="4" />
 </svg>
       <div class="text">
-        <h1>{{ $LanguageMap.LABEL_MY_WIFE_BIRTHDAY_BOY_LOVE }}</h1>
-        <p>{{ $LanguageMap.LABEL_MY_WIFE_BIRTHDAY_BOY_LOVE_WORD }}</p>
+        <h1>{{ $t('LABEL_MY_WIFE_BIRTHDAY_BOY_LOVE') }}</h1>
+        <p>{{ $t('LABEL_MY_WIFE_BIRTHDAY_BOY_LOVE_WORD') }}</p>
       </div>
       <div style="text-align:center;clear:both">
       </div>

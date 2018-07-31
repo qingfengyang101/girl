@@ -1,35 +1,36 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-// 引入对应的组件
-import Home from '@/components/Home';
-import Login from '@/components/Login';
-import Boy from '@/components/Boy';
-import Wife from '@/components/Wife';
-
 Vue.use(Router);
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
+      name: '/',
+      redirect: '/login',
+      component: resolve => require(['@/components/Login'],resolve)
+    },
+    {
+      path: '/login',
       name: 'Login',
-      component: Login
+      component: resolve => require(['@/components/Login'],resolve)
     },
     {
       path: '/home',
       name: 'Home',
-      component: Home
+      component: resolve => require(['@/components/Home'], resolve)
     },
     {
       path: '/boy',
       name: 'Boy',
-      component: Boy
+      component: resolve => require(['@/components/Boy'], resolve)
     },
     {
       path: '/wife',
       name: 'Wife',
-      component: Wife
+      component: resolve => require(['@/components/Wife'], resolve)
     }
   ]
 })
