@@ -10,6 +10,8 @@
  */
 
   import Vue from 'vue';
+  import PMServerCode from './PMserverCode';
+
   const that = Vue.prototype;
 
   export function post (methods, url, params) {
@@ -58,7 +60,7 @@
   export function commonRequestSuccess (methods, res) {
     Vue.prototype.eventBus.emit(methods, res);
   }
-  
+
   export function commonRequestError (methods, error) {
     Vue.prototype.eventBus.emit(methods, error);
   }

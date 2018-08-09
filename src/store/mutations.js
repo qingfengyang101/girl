@@ -14,5 +14,9 @@
 
     [types.SET_USER_NAME] (state, name) {
       return state.name = name;
+    },
+
+    [types.GET_WIFE_LIKE] (state, payload) {
+      console.log(state, payload, 'payload');
     }
   }

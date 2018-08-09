@@ -1,0 +1,11 @@
+{
+  "code": {
+    "status": 200,
+    "result": "OK"
+  },
+  "data": [
+    {"wifeInfoLike": "美食"},
+    {"wifeConstellation":"巨蟹座"},
+    {"wifeBloodType": "A型"}
+  ]
+}

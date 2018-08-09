@@ -320,7 +320,7 @@
 </template>
 
 <script>
-    import {GET_USER_NAME} from '../store/mutation-types';
+    import {GET_USER_NAME, GET_WIFE_LIKE} from '../store/mutation-types';
     export default {
       name: "Login",
       components: {
@@ -360,6 +360,7 @@
           this.isShowShade = false;
           this.isShowDialog = false;
           this.$store.dispatch(GET_USER_NAME);
+          this.$store.dispatch(GET_WIFE_LIKE);
         },
         handleWifeNameBlur: function () {
           this.wifeName === this.$constant.WIFE_NAME

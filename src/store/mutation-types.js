@@ -15,3 +15,9 @@ export const SET_USER_NAME = 'SET_USER_NAME';
  * @type {string}
  */
 export const GET_USER_NAME = 'GET_USER_NAME';
+
+/**
+ *  get wife like data
+ *  @type {string}
+ */
+export const GET_WIFE_LIKE = 'GET_WIFE_LIKE';

@@ -1,0 +1,9 @@
+{
+  "name": "data",
+  "status": "OK",
+  "dependencies": {
+    "eat": "炒田螺",
+    "drink": "脱脂纯奶",
+    "play": "旅游"
+  }
+}

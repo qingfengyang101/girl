@@ -5,7 +5,9 @@
  */
 
 const API = {
-  LOGIN_GET_USER_NAME: '/static/api/data/LOGIN_GET_USER_NAME.json'
+  LOGIN_GET_USER_NAME: '/static/api/data/LOGIN_GET_USER_NAME.json',
+  GET_WIFE_LIKE: '/static/api/data/WIFE_LIKE_HOBBY.json',
+  WIFE_INFO_BASE: '/static/api/data/WIFE_INFO_BASE.json'
 }
 
 const apiMap = {}
