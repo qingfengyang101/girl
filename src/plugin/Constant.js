@@ -22,6 +22,10 @@ const Constant = {
   WIFE_BOARD_MESSAGE_COLS: 30,
   WIFE_BOARD_MESSAGE_ROWS: 3,
 
+  /** status **/
+  STATUS_0: 0,
+  STATUS_1: 1,
+
   /** css opacity **/
   OVERLAY_OPACITY: 0.7,
   Z_INDEX_SHADE: 20141226,

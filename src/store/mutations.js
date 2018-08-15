@@ -1,11 +1,13 @@
 /**
  *  commit some modify funtion
- *  author: xuyinghao
+ *  author: xyh
  *  Date: 2018/6/30 17:51
  */
 
   import * as types from './mutation-types';
   import Vue from 'vue';
+  import UserModel from './model/User';
+  const that = Vue.prototype;
 
   export default {
     [types.GET_USER_NAME] (state, payload) {
@@ -17,6 +19,11 @@
     },
 
     [types.GET_WIFE_LIKE] (state, payload) {
-      console.log(state, payload, 'payload');
+    },
+    [types.USER_LOGIN_SYSTEM] (state, payload) {
+      if (that.$lodash.isObject(payload)) {
+         const userModel = new UserModel('User').initFromArray(payload);
+         Vue.prototype.eventBus.emit(types.USER_LOGIN_SYSTEM, userModel);
+      }
     }
   }

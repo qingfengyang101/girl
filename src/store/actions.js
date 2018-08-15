@@ -29,8 +29,18 @@
       }
 
       getWifeLike().then((res) => {
+
         Vue.prototype.eventBus.emit(types.GET_WIFE_LIKE, res);
         commit(types.GET_WIFE_LIKE, res);
       });
+    },
+    [types.USER_LOGIN_SYSTEM] ({commit}, payload) {
+      if (that.$lodash.isObject(payload)) {
+        Vue.prototype.eventBus.emit(types.USER_LOGIN_SYSTEM, payload);
+        commit(types.USER_LOGIN_SYSTEM, payload);
+      } else {
+        Vue.prototype.eventBus.emit(types.USER_LOGIN_ERROR, payload);
+      }
     }
+
   }

@@ -320,7 +320,12 @@
 </template>
 
 <script>
-    import {GET_USER_NAME, GET_WIFE_LIKE} from '../store/mutation-types';
+    import {
+      GET_USER_NAME,
+      GET_WIFE_LIKE,
+      USER_LOGIN_SYSTEM
+    } from '../store/mutation-types';
+
     export default {
       name: "Login",
       components: {
@@ -359,8 +364,13 @@
         handleBtnClick: function () {
           this.isShowShade = false;
           this.isShowDialog = false;
-          this.$store.dispatch(GET_USER_NAME);
-          this.$store.dispatch(GET_WIFE_LIKE);
+          this.$store.dispatch(USER_LOGIN_SYSTEM, {
+            USER_ID: '124',
+            USER_NAME: 'xuyinghao',
+            USER_ROLE: '老公',
+            USER_PERMISSION: ['12', '12'],
+            USER_STATUS: 0,
+          })
         },
         handleWifeNameBlur: function () {
           this.wifeName === this.$constant.WIFE_NAME
