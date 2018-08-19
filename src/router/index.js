@@ -7,12 +7,6 @@ export default new Router({
   mode: 'history',
   routes: [
     {
-      path: '/',
-      name: '/',
-      redirect: '/login',
-      component: resolve => require(['@/components/Login'],resolve)
-    },
-    {
       path: '/login',
       name: 'Login',
       component: resolve => require(['@/components/Login'],resolve)
@@ -31,6 +25,19 @@ export default new Router({
       path: '/wife',
       name: 'Wife',
       component: resolve => require(['@/components/Wife'], resolve)
+    },
+    {
+      path: '/',
+      name: '/',
+      redirect: '/checkUserLogin',
+      component: resolve => require(['@/components/CheckUserLogin'], resolve)
+    },
+    {
+      path: '/checkUserLogin',
+      name: 'CheckUserLogin',
+      component: resolve => require(['@/components/CheckUserLogin'], resolve),
+      beforeEnter: (to, from, next) => {
+      }
     }
   ]
 })
