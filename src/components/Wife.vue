@@ -1,9 +1,6 @@
 <template>
   <div class="wife">
     <div v-if="isShowFireOrInfo">
-      <common-info></common-info>
-      <audio :src="WifeAudio" loop autoplay v-if="WifeAudio"></audio>
-      <common-fire></common-fire>
     </div>
     <!-- 成功闯关弹框提示 -->
     <common-dialog
@@ -25,19 +22,14 @@
 </template>
 
 <script>
-    import WifeAudio from '../assets/audio/wife_brithday.mp3';
-    import CommonInfo from "./commonComponents/commonInfo";
-
     export default {
       name: "Wife",
       components: {
-        CommonInfo
       },
       data () {
         return {
           isShowShade: true,
           isShowDialog: true,
-          WifeAudio
         }
       },
       methods: {
