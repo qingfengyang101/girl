@@ -51,6 +51,7 @@
         playRecordFlag: true,
         stopRecordFlag: true,
         message:'',
+        bufferGroup: [],
         streamPayload: null,
         streamInitFlag: false,
         commonAPI: null,
@@ -94,7 +95,7 @@
       },
       handleRecordStop: function () {
         if (!this.startRecordFlag) {
-          this.commonAPI.mediaRecordBiz.mediaStopRecord(this.videoMy);
+          this.bufferGroup = this.commonAPI.mediaRecordBiz.mediaStopRecord(this.videoMy);
           this.startRecordFlag = true;
           this.stopRecordFlag = false;
         }

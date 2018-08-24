@@ -87,9 +87,7 @@ export const MediaRecord = window.MediaRecord || (function () {
         let that = this;
         this.mediaRecorder.ondataavailable = function (event) {
           if (event.data && event.data.size > 0) {
-            console.log(that, 'recodedBlobs');
             that.mediaBoClass.recodedBlobs.push(event.data);
-            console.log(that.mediaBoClass.recodedBlobs, '存储的blobs');
           }
         };
         that.mediaRecorder.start(10);
@@ -103,13 +101,13 @@ export const MediaRecord = window.MediaRecord || (function () {
     mediaStopRecord (videoDom) {
       this.mediaRecorder.stop();
       videoDom.controls = true;
+      return this.mediaBoClass.recodedBlobs;
     }
 
     mediaPlayRecord (videoDom) {
       this.mediaBoClass.sourceBuffer = new Blob(this.mediaBoClass.recodedBlobs, {type: this.mimeType});
       videoDom.src = window.URL.createObjectURL(this.mediaBoClass.sourceBuffer);
 
-      console.log(videoDom.src, 'videoDom src 路径');
       videoDom.addEventListener('loadedmetadata', () => {
         if (videoDom.duration === Infinity) {
           this.mediaBoClass.currentTime = 1e101;
