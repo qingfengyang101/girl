@@ -95,6 +95,9 @@ const cn = {
   BTN_CHANGE_LANGUAGE: 'switch the language',
   BTN_LANGUAGE_CHINESE: '中文',
   BTN_LANGUAGE_ENGLISH: 'English',
+  BTN_RECORD_START: '开始录制',
+  BTN_RECORD_PLAY: '开始播放',
+  BTN_RECORD_STOP: '结束录制',
 
   /** question **/
   QUESTION_WIFE_FATHER_WHO: '请问，照片中的帅大叔， 是小公主的谁？仔细看哦, 选中你心中的答案。',

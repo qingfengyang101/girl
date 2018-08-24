@@ -13,7 +13,6 @@ const CommonFunc = {
   isWife:  function (data) {
     return data;
   }
-
 }
 
 const CommonFuncMap = {};

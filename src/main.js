@@ -5,6 +5,16 @@ import App from './App'
 import router from './router';
 import VueBus from 'vue-bus';
 
+function initVue () {
+}
+
+window.getVuePrototype = () => {
+  return (Vue && Vue.prototype);
+}
+
+const vuePrototype = window.getVuePrototype();
+
+
 /** use common function **/
 import * as PLUG from "./plugin/index";
 
@@ -16,16 +26,18 @@ import store from './store/index.js';
 import i18n from './plugin/Language/PMLanguage';
 import Axios from 'axios';
 
-Vue.prototype.$axios = Axios;
-Vue.prototype.$lodash = Lodash;
+vuePrototype.$axios = Axios;
+vuePrototype.$lodash = Lodash;
 
 Vue.use(PLUG);
 Vue.use(commonComponentMap);
 Vue.use(MuseUI);
 Vue.use(VueBus);
 
-Vue.prototype.eventBus = Vue.prototype.$bus;
+vuePrototype.eventBus = vuePrototype.$bus;
 Vue.config.productionTip = false;
+
+
 
 /* eslint-disable no-new */
 new Vue({

@@ -36,8 +36,6 @@ export default new Router({
       path: '/checkUserLogin',
       name: 'CheckUserLogin',
       component: resolve => require(['@/components/CheckUserLogin'], resolve),
-      beforeEnter: (to, from, next) => {
-      }
     }
   ]
 })

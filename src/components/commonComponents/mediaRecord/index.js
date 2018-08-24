@@ -59,7 +59,6 @@ export const MediaRecord = window.MediaRecord || (function () {
       super (mediaSource, mediaRecorder, mediaGetUserMedia);
       this.recodedBlobs = options.recodedBlobs;
       this.sourceBuffer = options.sourceBuffer;
-      this.recordVideo = options.recordVideo;
     }
   }
 
@@ -81,39 +80,48 @@ export const MediaRecord = window.MediaRecord || (function () {
     }
 
     mediaStartRecord () {
-
       try {
-        this.mediaRecorder(window.streamData, this.mimeType);
-        this.mediaRecorder.ondataavailable = this.handleDataAvailable;
-        this.mediaRecorder.start(10);
+        this.mediaRecorder = new MediaRecorder(window.streamData, {mimeType: this.mimeType});
+        this.mediaRecorder.onstop = function (event) {
+        }
+        let that = this;
+        this.mediaRecorder.ondataavailable = function (event) {
+          if (event.data && event.data.size > 0) {
+            console.log(that, 'recodedBlobs');
+            that.mediaBoClass.recodedBlobs.push(event.data);
+            console.log(that.mediaBoClass.recodedBlobs, '存储的blobs');
+          }
+        };
+        that.mediaRecorder.start(10);
 
-      } catch (e) {}
+      } catch (e) {
+        console.log(e, 'error start Record');
+      }
+
     }
 
-    handleDataAvailable (event) {
-      if (event.data && event.data.size > 0) this.mediaBoClass.recodedBlobs.push(event.data);
-    }
-
-    mediaStopRecord () {
+    mediaStopRecord (videoDom) {
       this.mediaRecorder.stop();
+      videoDom.controls = true;
     }
 
-    mediaPlayRecord () {
-      this.mediaBoClass.sourceBuffer = new Blob(this.mediaBoClass.recodedBlobs, {type: 'video/webm'});
-      this.mediaBoClass.recordVideo.src = window.URL.createObjectURL(this.mediaBoClass.sourceBuffer);
+    mediaPlayRecord (videoDom) {
+      this.mediaBoClass.sourceBuffer = new Blob(this.mediaBoClass.recodedBlobs, {type: this.mimeType});
+      videoDom.src = window.URL.createObjectURL(this.mediaBoClass.sourceBuffer);
 
-      this.mediaBoClass.recordVideo.addEventListener('loadedmetadata', () => {
-        if (this.mediaBoClass.recordVideo.duration === Infinity) {
+      console.log(videoDom.src, 'videoDom src 路径');
+      videoDom.addEventListener('loadedmetadata', () => {
+        if (videoDom.duration === Infinity) {
           this.mediaBoClass.currentTime = 1e101;
-          this.mediaBoClass.recordVideo.ontimeupdate = function() {
-            this.mediaBoClass.recordVideo.currentTime = 0;
-            this.mediaBoClass.recordVideo.ontimeupdate = function() {
-              delete this.mediaBoClass.recordVideo.ontimeupdate;
-              this.mediaBoClass.recordVideo.play();
+          videoDom.ontimeupdate = function() {
+            videoDom.currentTime = 0;
+            videoDom.ontimeupdate = function() {
+              delete videoDom.ontimeupdate;
+              videoDom.play();
             };
           };
         } else {
-          this.mediaBoClass.recordVideo.play();
+          videoDom.play();
         }
       });
     }
@@ -133,10 +141,7 @@ export const MediaRecord = window.MediaRecord || (function () {
     mediaCheckOriginSecure();
 
     window.streamData = null;
-    navigator.mediaDevices.getUserMedia({audio: true, video: true}).then(function (stream) {
-      window.streamData = stream;
-      _initAPI();
-    });
+    window.RecordPromise = navigator.mediaDevices.getUserMedia({audio: true, video: true});
   }
 
   function mediaCheckOriginSecure () {
@@ -149,8 +154,9 @@ export const MediaRecord = window.MediaRecord || (function () {
     }
   }
 
-  function _initAPI () {
+  function _initAPI (stream) {
     let mimeType = null;
+    window.streamData = stream;
 
     /**
      * check type to some video webm
@@ -173,7 +179,7 @@ export const MediaRecord = window.MediaRecord || (function () {
     }
     const COMMON_API = {
       mediaSource: new MediaSource(),
-      mediaRecorder: new MediaRecorder(window.streamData, {mimeType: mimeType}), // TODO：MediaRecorder params to steamData
+      mediaRecorder: new MediaRecorder(stream, {mimeType: this.mimeType}), // TODO：MediaRecorder params to steamData
       mediaGetUserMedia: navigator.mediaDevices.getUserMedia
     }
     const mediaRecordBase = new MediaRecordBase(COMMON_API.mediaSource, COMMON_API.mediaRecorder, COMMON_API.mediaGetUserMedia);
