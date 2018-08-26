@@ -5,14 +5,11 @@ import App from './App'
 import router from './router';
 import VueBus from 'vue-bus';
 
-function initVue () {
-}
-
-window.getVuePrototype = () => {
+window.getVuePrototype = (Vue) => {
   return (Vue && Vue.prototype);
 }
 
-const vuePrototype = window.getVuePrototype();
+const vuePrototype = window.getVuePrototype(Vue);
 
 
 /** use common function **/

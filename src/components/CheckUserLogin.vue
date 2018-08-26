@@ -1,5 +1,7 @@
 <template>
     <div class="check-user-login">
+      <!--  -->
+
       <div class="record-login-warp">
         <video id="recordVideo"
                autoplay
@@ -73,29 +75,26 @@
       }
     },
     mounted () {
-      MediaRecord.init();
-      window.RecordPromise.then((stream) => {
-        this.streamPayload = stream;
-        this.commonAPI = MediaRecord.RecorderAPI(this.streamPayload);
-        this.videoMy = document.getElementById('recordVideo');
-        this.videoMy.srcObject = this.streamPayload;
+      this.videoMy = document.getElementById('recordVideo');
+      MediaRecord.init(this.videoMy, (API) => {
+        this.commonAPI = API.mediaRecordBiz;
       });
     },
     methods: {
       handleStart: function () {
-        this.commonAPI.mediaRecordBiz.mediaStartRecord();
+        this.commonAPI.mediaStartRecord();
         this.startRecordFlag = false;
       },
       handlePlay: function () {
         if (!this.stopRecordFlag) {
           this.videoMy = document.getElementById('playRecordVideo');
-          this.commonAPI.mediaRecordBiz.mediaPlayRecord(this.videoMy);
+          this.commonAPI.mediaPlayRecord(this.videoMy);
           this.stopRecordFlag = true;
         }
       },
       handleRecordStop: function () {
         if (!this.startRecordFlag) {
-          this.bufferGroup = this.commonAPI.mediaRecordBiz.mediaStopRecord(this.videoMy);
+          this.bufferGroup = this.commonAPI.mediaStopRecord(this.videoMy);
           this.startRecordFlag = true;
           this.stopRecordFlag = false;
         }

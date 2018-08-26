@@ -5,6 +5,9 @@
  *  Date: 2018/8/15 9:48
  */
 
+ import Vue from 'vue';
+ const vuePrototype = window.getVuePrototype(Vue);
+
 export const MediaRecord = window.MediaRecord || (function () {
 
   /**
@@ -20,7 +23,7 @@ export const MediaRecord = window.MediaRecord || (function () {
       this.checkSupportAPI({
         mediaSource: MediaSource,
         mediaRecorder: MediaRecorder,
-        mediaGetUserMedia: navigator.mediaDevices.getUserMedia
+        mediaGetUserMedia: navigator.mediaDevices.getUserMedia // webkit 
       });
 
       this.mediaSource = mediaSource;
@@ -31,7 +34,7 @@ export const MediaRecord = window.MediaRecord || (function () {
     checkSupportAPI (mediaAPI) {
       for (let key in mediaAPI) {
         if (mediaAPI.hasOwnProperty(key)) {
-          if (typeof mediaAPI[key] === 'function') {
+          if (vuePrototype.$lodash.isFunction(mediaAPI[key])) {
             return true;
           } else {
             new Error(`${key}` + 'is not your brower not support! need to support!');
@@ -41,7 +44,7 @@ export const MediaRecord = window.MediaRecord || (function () {
     }
 
     get (mediaAPI) {
-      if (typeof mediaAPI === 'function') return mediaAPI;
+      if (vuePrototype.$lodash.isFunction(mediaAPI)) return mediaAPI;
     }
   }
 
@@ -59,6 +62,8 @@ export const MediaRecord = window.MediaRecord || (function () {
       super (mediaSource, mediaRecorder, mediaGetUserMedia);
       this.recodedBlobs = options.recodedBlobs;
       this.sourceBuffer = options.sourceBuffer;
+      this.startRecordFlag = options.startRecordFlag;
+      this.endRecordFlag = options.endRecordFlag;
     }
   }
 
@@ -81,7 +86,6 @@ export const MediaRecord = window.MediaRecord || (function () {
 
     mediaStartRecord () {
       try {
-        this.mediaRecorder = new MediaRecorder(window.streamData, {mimeType: this.mimeType});
         this.mediaRecorder.onstop = function (event) {
         }
         let that = this;
@@ -91,7 +95,7 @@ export const MediaRecord = window.MediaRecord || (function () {
           }
         };
         that.mediaRecorder.start(10);
-
+        this.mediaBoClass.startRecordFlag = true;
       } catch (e) {
         console.log(e, 'error start Record');
       }
@@ -99,19 +103,23 @@ export const MediaRecord = window.MediaRecord || (function () {
     }
 
     mediaStopRecord (videoDom) {
+      if (this.mediaBoClass.startRecordFlag) {
       this.mediaRecorder.stop();
       videoDom.controls = true;
+      this.mediaBoClass.endRecordFlag = true;
       return this.mediaBoClass.recodedBlobs;
+    }
     }
 
     mediaPlayRecord (videoDom) {
+      if (this.mediaBoClass.endRecordFlag) {
       this.mediaBoClass.sourceBuffer = new Blob(this.mediaBoClass.recodedBlobs, {type: this.mimeType});
       videoDom.src = window.URL.createObjectURL(this.mediaBoClass.sourceBuffer);
 
       videoDom.addEventListener('loadedmetadata', () => {
         if (videoDom.duration === Infinity) {
           this.mediaBoClass.currentTime = 1e101;
-          videoDom.ontimeupdate = function() {
+            videoDom.ontimeupdate = function () {
             videoDom.currentTime = 0;
             videoDom.ontimeupdate = function() {
               delete videoDom.ontimeupdate;
@@ -123,23 +131,35 @@ export const MediaRecord = window.MediaRecord || (function () {
         }
       });
     }
+    }
 
     mediaPlayGetUrl () {
       return window.URL.createObjectURL(this.mediaBoClass.sourceBuffer);
     }
-    handleSourceOpen (event) {
-      this.mediaBoClass.sourceBuffer = this.mediaSource.addSourceBuffer('video/webm; codecs="vp8"');
+    handleSourceOpen () {
+      this.mediaBoClass.sourceBuffer = this.mediaSource.addSourceBuffer(this.mimeType);
     }
   }
 
-  function _init () {
+  function init (videoDom, callback) {
     /**
      * check the origin secure for https or localhost.
+     * plase to open server host local.
      */
-    mediaCheckOriginSecure();
-
     window.streamData = null;
-    window.RecordPromise = navigator.mediaDevices.getUserMedia({audio: true, video: true});
+    mediaCheckOriginSecure();
+    initUserMedia(videoDom, callback);
+  }
+
+  /**
+   * async quest stream use navigator.mediaDevices.getUserMedia
+   * @param {*} videoDom 
+   * @param {*} callback 
+   * @returns {*}
+   */
+  async function initUserMedia (videoDom, callback) {
+    let stream = await navigator.mediaDevices.getUserMedia({audio: true, video: true});
+    _initAPI(stream, videoDom, callback);
   }
 
   function mediaCheckOriginSecure () {
@@ -152,7 +172,7 @@ export const MediaRecord = window.MediaRecord || (function () {
     }
   }
 
-  function _initAPI (stream) {
+  function _initAPI (stream, videoDom, callback) {
     let mimeType = null;
     window.streamData = stream;
 
@@ -163,29 +183,33 @@ export const MediaRecord = window.MediaRecord || (function () {
     const mimeTypeGroup = [
       'video/webm;codecs=vp9',
       'video/webm;codecs=vp8',
+      'video/webm;codecs=h264',
       'video/webm'
     ];
 
-    if (typeof MediaRecorder === 'function') {
+    if (vuePrototype.$lodash.isFunction(MediaRecorder)) {
       mimeTypeGroup.map((item) => {
-        if (!MediaRecorder.isTypeSupported(item)) {
-          new Error(`${item}` + 'is not supported');
-        } else {
+        if (MediaRecorder.isTypeSupported(item)) {
           mimeType = item;
         }
       });
     }
+
     const COMMON_API = {
       mediaSource: new MediaSource(),
-      mediaRecorder: new MediaRecorder(stream, {mimeType: this.mimeType}), // TODO：MediaRecorder params to steamData
+      mediaRecorder: new MediaRecorder(stream, {mimeType: mimeType}), // TODO：MediaRecorder params to steamData
       mediaGetUserMedia: navigator.mediaDevices.getUserMedia
     }
+
     const mediaRecordBase = new MediaRecordBase(COMMON_API.mediaSource, COMMON_API.mediaRecorder, COMMON_API.mediaGetUserMedia);
     const mediaRecordBo = new MediaRecordBo(COMMON_API.mediaSource, COMMON_API.mediaRecorder, COMMON_API.mediaGetUserMedia,{
       recodedBlobs: [],
       sourceBuffer: null,
-      recordVideo: null
+      recordVideo: null,
+      startRecordFlag: false,
+      endRecordFlag: false
     });
+
     const mediaRecordBiz = new MediaRecordBiz(COMMON_API.mediaSource, COMMON_API.mediaRecorder, COMMON_API.mediaGetUserMedia, {
       mimeType: mimeType,
       mediaBoClass: mediaRecordBo
@@ -194,15 +218,15 @@ export const MediaRecord = window.MediaRecord || (function () {
     const RecorderAPI = {
       mediaRecordBase,
       mediaRecordBo,
-      mediaRecordBiz
+      mediaRecordBiz,
     }
 
-    return RecorderAPI;
+    videoDom.srcObject = stream;
+    vuePrototype.$lodash.isFunction(callback) && callback(RecorderAPI);
   }
 
   return {
-    init: _init,
-    RecorderAPI: _initAPI
+    init,
   }
 
 }());

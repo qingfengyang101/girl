@@ -8,8 +8,6 @@
  */
 
 import lodash from 'lodash';
-import Vue from 'vue';
-
 class ModelBase {
   constructor (modelName) {
     this.modelName = modelName;
