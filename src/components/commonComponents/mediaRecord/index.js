@@ -5,8 +5,8 @@
  *  Date: 2018/8/15 9:48
  */
 
- import Vue from 'vue';
- const vuePrototype = window.getVuePrototype(Vue);
+import Vue from 'vue';
+const vuePrototype = window.getVuePrototype(Vue);
 
 export const MediaRecord = window.MediaRecord || (function () {
 

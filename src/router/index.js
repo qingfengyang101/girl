@@ -29,8 +29,8 @@ export default new Router({
     {
       path: '/',
       name: '/',
-      redirect: '/checkUserLogin',
-      component: resolve => require(['@/components/CheckUserLogin'], resolve)
+      redirect: '/login',
+      component: resolve => require(['@/components/Login'], resolve)
     },
     {
       path: '/checkUserLogin',

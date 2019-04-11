@@ -238,7 +238,7 @@
                 </mu-list>
                   <textarea
                     style="width: 100%; height: 200px; margin-left: 10px; padding: 20px 20px;
-                     border-color: #2196f3; outline: none; color: #2196f3;"
+                    border-color: #2196f3; outline: none; color: #2196f3;"
                     :placeholder="getLang('HOLDER_WIFE_HOBBY_BASE_SEND_MESSAGE_TITLE')"
                     v-model="wifeBoardMessage"
                     :cols="$constant.WIFE_BOARD_MESSAGE_COLS"
