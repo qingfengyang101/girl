@@ -9,33 +9,33 @@ export default new Router({
     {
       path: '/login',
       name: 'Login',
-      component: resolve => require(['@/components/Login'],resolve)
+      component: () => import("@/components/Login.vue")
     },
     {
       path: '/home',
       name: 'Home',
-      component: resolve => require(['@/components/Home'], resolve)
+      component: () => import("@/components/Home.vue")
     },
     {
       path: '/boy',
       name: 'Boy',
-      component: resolve => require(['@/components/Boy'], resolve)
+      component: () => import("@/components/Boy.vue")
     },
     {
       path: '/wife',
       name: 'Wife',
-      component: resolve => require(['@/components/Wife'], resolve)
+      component: () => import("@/components/Wife.vue")
     },
     {
       path: '/',
       name: '/',
       redirect: '/login',
-      component: resolve => require(['@/components/Login'], resolve)
+      component: () => import('@/components/Login')
     },
     {
       path: '/checkUserLogin',
       name: 'CheckUserLogin',
-      component: resolve => require(['@/components/CheckUserLogin'], resolve),
+      component: () => import('@/components/CheckUserLogin'),
     }
   ]
 })

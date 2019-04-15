@@ -1,4 +1,4 @@
- /**
+/**
   *  use Jest library and vue-utils-jest-example
   *  test login template to error.
   */
