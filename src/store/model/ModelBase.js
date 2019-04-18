@@ -6,8 +6,8 @@
  * author: xyh
  * Date： 2018/8/13 17:07
  */
-
 import lodash from 'lodash';
+
 class ModelBase {
   constructor (modelName) {
     this.modelName = modelName;

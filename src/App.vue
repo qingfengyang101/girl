@@ -1,6 +1,20 @@
 <template>
   <div id="app">
-    <router-view/>
+    <!-- 
+        keep let this is compoent of sure extist.
+        you can pass to router meta keywords to keep-alive. 
+        to keep cache.
+      -->
+    <keep-alive>
+        <router-view
+          v-if="$route.meta.keepAlive"
+        >
+        </router-view>
+    </keep-alive>
+    <router-view
+      v-if="!$route.meta.keepAlive"
+    >
+    </router-view>
   </div>
 </template>
 

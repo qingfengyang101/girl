@@ -9,7 +9,11 @@ export default new Router({
     {
       path: '/login',
       name: 'Login',
-      component: () => import("@/components/Login.vue")
+      component: () => import("@/components/Login.vue"),
+      meta: {
+        title: "首页登录验证",
+        keepAlive: true 
+      }
     },
     {
       path: '/home',
