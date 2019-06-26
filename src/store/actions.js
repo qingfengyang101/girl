@@ -41,6 +41,24 @@
       } else {
         Vue.prototype.eventBus.emit(types.USER_LOGIN_ERROR, payload);
       }
+    },
+    [types.WEATHER_LUOHE_REQUERST] ({commit}, payload) {
+      async function requestWeather () {
+        try {
+          let weatherResult = await that.$axios.get(that.$api.WEATHER_LUOHE_REQUERST_API);
+          console.log(weatherResult, "weatherResult")
+          return {
+            weatherResult
+          };
+
+        } catch (error) {
+          console.log(error, "error")
+        }
+      }
+
+      requestWeather().then( ( data ) => {
+        commit(types.WEATHER_LUOHE_REQUERST, data);
+      })
     }
 
   }

@@ -25,5 +25,8 @@
          const userModel = new UserModel('User').initFromArray(payload);
          Vue.prototype.eventBus.emit(types.USER_LOGIN_SYSTEM, userModel);
       }
+    },
+    [types.WEATHER_LUOHE_REQUERST] (state, payload) {
+      Vue.prototype.eventBus.emit(types.WEATHER_LUOHE_REQUERST, payload);
     }
   }

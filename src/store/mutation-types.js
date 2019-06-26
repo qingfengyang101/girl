@@ -33,3 +33,8 @@ export const GET_WIFE_LIKE = 'GET_WIFE_LIKE';
  *  @type {string}
  */
 export const USER_LOGIN_SYSTEM = 'USER_LOGIN_SYSTEM';
+/**
+ * request weather to api
+ * @type {string}
+ */
+export const WEATHER_LUOHE_REQUERST = 'WEATHER_LUOHE_REQUERST'

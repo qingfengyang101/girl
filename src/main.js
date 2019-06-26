@@ -34,7 +34,7 @@ Vue.use(VueBus);
 vuePrototype.eventBus = vuePrototype.$bus;
 Vue.config.productionTip = false;
 
-
+/** requset to  */
 
 /* eslint-disable no-new */
 new Vue({

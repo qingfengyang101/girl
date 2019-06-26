@@ -252,7 +252,8 @@
 
         </mu-expansion-panel>
       </div>
-
+      <!-- 天气预报部分 -->
+      
       <!-- 弹框提示 -->
       <common-dialog
           :title="getLang('DIALOG_TITLE_TIP_GO')"
@@ -323,7 +324,8 @@
     import {
       GET_USER_NAME,
       GET_WIFE_LIKE,
-      USER_LOGIN_SYSTEM
+      USER_LOGIN_SYSTEM,
+      WEATHER_LUOHE_REQUERST
     } from '../store/mutation-types';
 
     export default {
@@ -358,6 +360,7 @@
           wifeAphorism: this.$t('LABEL_WIFE_BASE_INFO_WIFE_APHORISM'),
           wifeLikeLove: this.$t('LABEL_WIFE_BASE_INFO_WIFE_LIKE_LOVE'),
           wifeLife: this.$t('LABEL_WIFE_BASE_INFO_WIFE_LIFE'),
+          weatherData: null
         }
       },
       methods: {
@@ -437,6 +440,10 @@
           if (this.$lodash.isObject(res)) {
 
           }
+        },
+        handleGetWeather: function (res) {
+          console.log(res, "weather");
+          this.weatherData = res.weatherResult.data.HeWeather6;
         }
       },
       computed: {
@@ -463,7 +470,9 @@
       watch: {
       },
       created () {
-        this.eventBus.on(GET_USER_NAME, this.handleGetUserName)
+        this.$store.dispatch(WEATHER_LUOHE_REQUERST, {});
+        this.eventBus.on(GET_USER_NAME, this.handleGetUserName);
+        this.eventBus.on(WEATHER_LUOHE_REQUERST, this.handleGetWeather)
       },
       beforeDestroy () {
         this.eventBus.off(GET_USER_NAME, this.handleGetUserName);
