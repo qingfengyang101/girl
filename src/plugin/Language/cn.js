@@ -73,6 +73,9 @@ const cn = {
   TITLE_HOME_PHOTO_GOOD: '亲， 小公主为你点赞！',
   TITLE_HOME_PHOTO_TO_YOU: '小公主祝福语',
   TITLE_HOME_PHOTO_TO_YOU_GOOD: '亲，感恩有你陪伴!',
+  TITLE_THE_WEATHER_FORECAST: '天气预报',
+  TITLE_THE_WEATHER_FORECAST_KEEP_SMILE: '保持微笑哦',
+  TITLE_BODY_FEELING_TEMPERATURE: '体感温度',
 
   /** dialog **/
   DIALOG_TITLE_TIP_MESSAGE: '温馨提示',

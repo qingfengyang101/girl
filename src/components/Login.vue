@@ -253,7 +253,12 @@
         </mu-expansion-panel>
       </div>
       <!-- 天气预报部分 -->
-      
+      <common-weather
+        :weatherData="weatherData"
+
+      >
+
+      </common-weather>
       <!-- 弹框提示 -->
       <common-dialog
           :title="getLang('DIALOG_TITLE_TIP_GO')"
@@ -438,12 +443,12 @@
         },
         handleGetUserName: function (res) {
           if (this.$lodash.isObject(res)) {
-
+            console.log(res);
           }
         },
         handleGetWeather: function (res) {
-          console.log(res, "weather");
           this.weatherData = res.weatherResult.data.HeWeather6;
+          console.log(this.weatherData, "weather");          
         }
       },
       computed: {

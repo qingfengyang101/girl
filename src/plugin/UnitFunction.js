@@ -12,7 +12,20 @@ const CommonFunc = {
    */
   isWife:  function (data) {
     return data;
-  }
+  },
+
+
+  /** 
+   *  the judge for type function 
+   *  @param: type { String }
+   *  @return { Boolean } true or false
+  */
+  isType: function (type) {
+    return function (target) {
+      return `[object ${type}]` === Object.prototype.toString.call(target);
+    }
+  },
+
 }
 
 const CommonFuncMap = {};

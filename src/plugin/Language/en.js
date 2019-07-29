@@ -73,6 +73,9 @@ const en = {
   TITLE_HOME_PHOTO_GOOD: 'Dear! the princess send a thumbs-up for you!',
   TITLE_HOME_PHOTO_TO_YOU: 'Dear! The Blessing for you!',
   TITLE_HOME_PHOTO_TO_YOU_GOOD: 'Dear! Thanks the your companion!',
+  TITLE_THE_WEATHER_FORECAST: 'The Weather forecast',
+  TITLE_THE_WEATHER_FORECAST_KEEP_SMILE: 'keep smiling!',
+  TITLE_BODY_FEELING_TEMPERATURE: 'Body feeling temperature',
 
   /** dialog **/
   DIALOG_TITLE_TIP_MESSAGE: 'Warm Prompt',
@@ -82,7 +85,6 @@ const en = {
   DIALOG_TITLE_TIP_SECOND: 'Welcome to you! Notarize you ! you are the princess of good friend!  Come on ! You can pass!',
   DIALOG_TITLE_SUCCESS_TIP_LAST: 'Congratulations you! you success! nest you may be pass!',
   DIALOG_OVERLAY_OVERLAY_CLOSE_MESSAGE_LAST: 'You can join the princess the birthday of party! you may be the princess friend ! you may be know the princess about some things! please pass ! Last for You!',
-
   DIALOG_TITLE_SUCCESS_TIP_LAST_BOY: 'Welcome to you! Notarize you ! you are the princess of husband Xu Ying Hao!',
   DIALOG_OVERLAY_OVERLAY_CLOSE_MESSAGE_LAST_BOY: 'Last gift! let you send to the princess ! you only love the she and favour the she ! Don\'t bully she!',
 
@@ -113,4 +115,5 @@ const en = {
   WIFE_BIRTHDAY_PHOTO_ERROR_TEXT: 'Dear！your choice not correct! again to choice!',
   WIFE_BOY_LOVE_DATE_ERROR_TEXT: 'The Last question! error! please you case of commit!'
 };
+
 export default en;
