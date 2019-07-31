@@ -447,8 +447,7 @@
           }
         },
         handleGetWeather: function (res) {
-          this.weatherData = res.weatherResult.data.HeWeather6;
-          console.log(this.weatherData, "weather");          
+          this.weatherData = res.weatherResult.data.HeWeather6;         
         }
       },
       computed: {

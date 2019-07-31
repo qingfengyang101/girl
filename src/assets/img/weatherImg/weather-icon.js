@@ -71,77 +71,294 @@ import WeatherIconUrl_900 from "./icon-weather/900.png";
 import WeatherIconUrl_901 from "./icon-weather/901.png";
 import WeatherIconUrl_999 from "./icon-weather/999.png";
 
-export default {
-    WeatherIconUrl_100n,
-    WeatherIconUrl_101,
-    WeatherIconUrl_102,
-    WeatherIconUrl_103,
-    WeatherIconUrl_103n,
-    WeatherIconUrl_104,
-    WeatherIconUrl_104n,
-    WeatherIconUrl_201,
-    WeatherIconUrl_202,
-    WeatherIconUrl_203,
-    WeatherIconUrl_204,
-    WeatherIconUrl_205,
-    WeatherIconUrl_206, 
-    WeatherIconUrl_207,
-    WeatherIconUrl_208,
-    WeatherIconUrl_209,
-    WeatherIconUrl_210,
-    WeatherIconUrl_211, 
-    WeatherIconUrl_212,
-    WeatherIconUrl_213,
-    WeatherIconUrl_300, 
-    WeatherIconUrl_300n, 
-    WeatherIconUrl_301,
-    WeatherIconUrl_301n, 
-    WeatherIconUrl_302,
-    WeatherIconUrl_303,
-    WeatherIconUrl_304,
-    WeatherIconUrl_305, 
-    WeatherIconUrl_306,
-    WeatherIconUrl_307,
-    WeatherIconUrl_309,
-    WeatherIconUrl_310,
-    WeatherIconUrl_311,
-    WeatherIconUrl_312,
-    WeatherIconUrl_313,
-    WeatherIconUrl_314,
-    WeatherIconUrl_315,
-    WeatherIconUrl_316,
-    WeatherIconUrl_317,
-    WeatherIconUrl_318,
-    WeatherIconUrl_399,
-    WeatherIconUrl_400,
-    WeatherIconUrl_401,
-    WeatherIconUrl_402,
-    WeatherIconUrl_403,
-    WeatherIconUrl_404,
-    WeatherIconUrl_405,
-    WeatherIconUrl_406,
-    WeatherIconUrl_406n,
-    WeatherIconUrl_407,
-    WeatherIconUrl_407n,
-    WeatherIconUrl_408,
-    WeatherIconUrl_409,
-    WeatherIconUrl_410,
-    WeatherIconUrl_499, 
-    WeatherIconUrl_500,
-    WeatherIconUrl_501,
-    WeatherIconUrl_502,
-    WeatherIconUrl_503,
-    WeatherIconUrl_504,
-    WeatherIconUrl_507,
-    WeatherIconUrl_508,
-    WeatherIconUrl_509,
-    WeatherIconUrl_510,
-    WeatherIconUrl_511,
-    WeatherIconUrl_512,
-    WeatherIconUrl_513,
-    WeatherIconUrl_514, 
-    WeatherIconUrl_515,
-    WeatherIconUrl_900,
-    WeatherIconUrl_901,
-    WeatherIconUrl_999,
-}
+export default [
+    {
+        id: '100n',
+        url: WeatherIconUrl_100n,
+    },
+    {
+        id: '101',
+        url: WeatherIconUrl_101,
+   
+    },
+    {
+        id: '102',
+        url: WeatherIconUrl_102
+    },
+    {
+        id: '103',
+        url: WeatherIconUrl_103
+    },
+    {
+        id: '103n',
+        url: WeatherIconUrl_103n
+    },
+    {
+        id: '104',
+        url: WeatherIconUrl_104
+    },
+    {
+        id: '104n',
+        url: WeatherIconUrl_104n
+    },
+    {
+        id: '201',
+        url: WeatherIconUrl_201
+    },
+    {
+        id: '202',
+        url: WeatherIconUrl_202
+    },
+    {
+        id: '203',
+        url: WeatherIconUrl_203
+    },
+    {
+        id: '204',
+        url: WeatherIconUrl_204
+    },
+    {
+        id: '205',
+        url: WeatherIconUrl_205
+    },
+    {
+        id: '206',
+        url: WeatherIconUrl_206,
+    }, 
+    {
+        id: '207',
+        url: WeatherIconUrl_207
+    },
+    {
+        id: '208',
+        url: WeatherIconUrl_208
+    },
+    {
+        id: '209',
+        url: WeatherIconUrl_209
+    },
+    {
+        id: '210',
+        url: WeatherIconUrl_210
+    },
+    {
+        id: '211',
+        url: WeatherIconUrl_211
+    }, 
+    {
+        id: '212',
+        url: WeatherIconUrl_212
+    }, 
+    {
+        id: '213',
+        url: WeatherIconUrl_213
+    }, 
+    {
+        id: '300',
+        url: WeatherIconUrl_300
+    }, 
+    {
+        id: '300n',
+        url: WeatherIconUrl_300n
+    }, 
+    {
+        id: '301',
+        url: WeatherIconUrl_301
+    }, 
+    {
+        id:'301n',
+        url: WeatherIconUrl_301n
+    }, 
+    {
+        id: '302',
+        url: WeatherIconUrl_302
+    }, 
+    {
+        id: '303',
+        url: WeatherIconUrl_303
+    }, 
+    {
+        id: '304',
+        url: WeatherIconUrl_304
+    }, 
+    {
+        id: '305',
+        url: WeatherIconUrl_305
+    }, 
+    {
+        id: '306',
+        url: WeatherIconUrl_306
+    }, 
+    {
+        id: '307',
+        url: WeatherIconUrl_307
+    }, 
+    {
+        id: '309',
+        url: WeatherIconUrl_309
+    }, 
+    {
+        id: '310',
+        url: WeatherIconUrl_310
+    }, 
+    {
+        id: '311',
+        url: WeatherIconUrl_311
+    }, 
+    {
+        id: '312',
+        url: WeatherIconUrl_312
+    }, 
+    {
+        id: '313',
+        url: WeatherIconUrl_313
+    }, 
+    {
+        id: '314',
+        url: WeatherIconUrl_314
+    }, 
+    {
+        id: '315',
+        url: WeatherIconUrl_315
+    }, 
+    {
+        id: '316',
+        url: WeatherIconUrl_316
+    }, 
+    {
+        id: '317',
+        url: WeatherIconUrl_317
+    }, 
+    {
+        id: '318',
+        url: WeatherIconUrl_318
+    }, 
+    {
+        id: '399',
+        url: WeatherIconUrl_399
+    }, 
+    {
+        id: '400',
+        url: WeatherIconUrl_400
+    }, 
+    {
+        id:'401',
+        url: WeatherIconUrl_401
+    }, 
+    {
+        id: '402',
+        url: WeatherIconUrl_402
+    }, 
+    {
+        id: '403',
+        url: WeatherIconUrl_403
+    }, 
+    {
+        id: '404',
+        url: WeatherIconUrl_404
+    }, 
+    {
+        id: '405',
+        url: WeatherIconUrl_405
+    }, 
+    {
+        id: '406',
+        url: WeatherIconUrl_406
+    }, 
+    {
+        id: '406n',
+        url: WeatherIconUrl_406n
+    }, 
+    {
+        id: '407',
+        url: WeatherIconUrl_407
+    }, 
+    {
+        id: '407',
+        url: WeatherIconUrl_407n
+    }, 
+    {
+        id: '408',
+        url: WeatherIconUrl_408
+    }, 
+    {
+        id: '409',
+        url: WeatherIconUrl_409
+    }, 
+    {
+        id: '410',
+        url: WeatherIconUrl_410
+    }, 
+    {
+        id: '499',
+        url: WeatherIconUrl_499
+    }, 
+    {
+        id: '500',
+        url: WeatherIconUrl_500
+    }, 
+    {
+        id: '501',
+        url: WeatherIconUrl_501
+    }, 
+    {
+        id: '502',
+        url: WeatherIconUrl_502
+    }, 
+    {
+        id: '503',
+        url: WeatherIconUrl_503
+    }, 
+    {
+        id: '504',
+        url: WeatherIconUrl_504
+    }, 
+    {
+        id: '507',
+        url: WeatherIconUrl_507
+    }, 
+    {
+        id: '508',
+        url: WeatherIconUrl_508
+    }, 
+    {
+        id: '509',
+        url: WeatherIconUrl_509
+    }, 
+    {
+        id: '510',
+        url: WeatherIconUrl_510
+    }, 
+    {
+        id: '511',
+        url: WeatherIconUrl_511
+    }, 
+    {
+        id: '512',
+        url: WeatherIconUrl_512
+    }, 
+    {
+        id: '513',
+        url: WeatherIconUrl_513
+    }, 
+    {
+        id: '514',
+        url: WeatherIconUrl_514
+    }, 
+    {
+        id: '515',
+        url: WeatherIconUrl_515
+    }, 
+    {
+        id: '900',
+        url: WeatherIconUrl_900
+    }, 
+    {
+        id: '901',
+        url: WeatherIconUrl_901
+    }, 
+    {
+        id: '999',
+        url: WeatherIconUrl_999
+    }, 
+]

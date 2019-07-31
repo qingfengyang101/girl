@@ -7,16 +7,21 @@
         >
             <mu-card class="weather-warp-container">
                 <mu-card-header 
-                    :title="getLang('TITLE_THE_WEATHER_FORECAST')"
+                    :title="handleWeatherCityBasic(value)"
                     :sub-title="getLang('TITLE_THE_WEATHER_FORECAST_KEEP_SMILE')"
                 >
                     <mu-avatar
                         slot="avatar"
+                        class="weather-icon--head-portrait-box"
                     >
-                        <img src="../../assets/img/wife-head.png">
+                        <img 
+                            class="weather-icon-head-portrait"
+                            src="../../assets/img/wife-head.png"
+                        >
                     </mu-avatar>
                 </mu-card-header>
                 <mu-card-media
+                    class="weather-icon-head-text"
                     :title="getLang('TITLE_BODY_FEELING_TEMPERATURE')"
                     :sub-title="handleGetWeatherBodyFeel(value.now.fl)"        
                 >
@@ -26,11 +31,18 @@
                         class="weather-cloud-icon-style"
                     >
                 </mu-card-media>
+                  <mu-card-title 
+                    :title="value.now.cond_txt" 
+                    :sub-title="handleGetWeatherBodyFeelWind(value)"
+                  >
+                  </mu-card-title>
             </mu-card>
         </mu-container>
     </div>
 </template>
 <script>
+import weatherIconModel from "../../assets/img/weatherImg/weather-icon";
+
 export default {
     props: {
         weatherData: {
@@ -41,7 +53,16 @@ export default {
         }
     },
 
+    data () {
+      return {
+          weatherIconUrl: ''
+      }  
+    },
+
     methods: {
+        handleWeatherCityBasic: function (value) {
+            return `${value.basic.parent_city}${value.basic.location}${this.getLang('TITLE_THE_WEATHER_FORECAST')}`
+        },
         handleGetWeatherBodyFeel: function (val) {
             if (!val) {
                 return null;
@@ -49,19 +70,40 @@ export default {
 
             return val;
         },
-
         handleGetWeatherBodyFeelIcon: function (val) {
-            console.log(val, "val");
-            return '/static/img/weatherImg/icon-weather/'+ val +'.png';
+            let valStr = val + '',
+                that = this;
+                
+            that.$lodash.map(weatherIconModel, (v, k) => {
+                if ( valStr === v.id) {
+                    that.weatherIconUrl = v.url;
+                }
+            });
+            
+            return that.weatherIconUrl;
+        },
+        handleGetWeatherBodyFeelWind: function (value) {
+           return `${value.now.wind_dir}  ${this.getLang('TITLE_THE_WEATHER_FORECAST_FENGLI')}： ${value.now.wind_sc}${this.getLang('TITLE_THE_WEATHER_FORECAST_FENGLI_DEEP')}`;
         }
     }
 }
 </script>
 <style lang="less" scoped>
+    .container {
+        margin: 0;
+        padding: 0;
+    }
     .weather-warp {
         position: absolute;
         top: 64px;
         right: 0;
+        width: 350px;
+        height: auto;
+    }
+
+    .weather-icon--head-portrait-box {
+        width: 100px !important;
+        height: 110px !important;
     }
 
     .weather-warp-container {
