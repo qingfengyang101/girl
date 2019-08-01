@@ -28,5 +28,8 @@
     },
     [types.WEATHER_LUOHE_REQUERST] (state, payload) {
       Vue.prototype.eventBus.emit(types.WEATHER_LUOHE_REQUERST, payload);
+    },
+    [types.WEATHER_LUOHE_REQUERST_ERROR] (state, payload) {
+      Vue.prototype.eventBus.emit(types.WEATHER_LUOHE_REQUERST_ERROR, payload);
     }
   }

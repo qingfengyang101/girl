@@ -37,4 +37,9 @@ export const USER_LOGIN_SYSTEM = 'USER_LOGIN_SYSTEM';
  * request weather to api
  * @type {string}
  */
-export const WEATHER_LUOHE_REQUERST = 'WEATHER_LUOHE_REQUERST'
+export const WEATHER_LUOHE_REQUERST = 'WEATHER_LUOHE_REQUERST';
+/**
+ * request weather to error
+ * @type {String}
+ */
+export const WEATHER_LUOHE_REQUERST_ERROR = 'WEATHER_LUOHE_REQUERST_ERROR';

@@ -330,7 +330,8 @@
       GET_USER_NAME,
       GET_WIFE_LIKE,
       USER_LOGIN_SYSTEM,
-      WEATHER_LUOHE_REQUERST
+      WEATHER_LUOHE_REQUERST,
+      WEATHER_LUOHE_REQUERST_ERROR
     } from '../store/mutation-types';
 
     export default {
@@ -447,7 +448,12 @@
           }
         },
         handleGetWeather: function (res) {
-          this.weatherData = res.weatherResult.data.HeWeather6;         
+          if (this.$lodash.isObject(res)) {
+            this.weatherData = res.weatherResult.data.HeWeather6;         
+          }
+        },
+        handleGetWeatherServerError: function (error) {
+          
         }
       },
       computed: {
@@ -476,10 +482,12 @@
       created () {
         this.$store.dispatch(WEATHER_LUOHE_REQUERST, {});
         this.eventBus.on(GET_USER_NAME, this.handleGetUserName);
-        this.eventBus.on(WEATHER_LUOHE_REQUERST, this.handleGetWeather)
+        this.eventBus.on(WEATHER_LUOHE_REQUERST, this.handleGetWeather);
+        this.eventBus.on(WEATHER_LUOHE_REQUERST_ERROR, this.handleGetWeatherServerError)
       },
       beforeDestroy () {
         this.eventBus.off(GET_USER_NAME, this.handleGetUserName);
+        this.eventBus.off(WEATHER_LUOHE_REQUERST_ERROR, this.handleGetWeatherServerError);
       }
     }
 </script>
