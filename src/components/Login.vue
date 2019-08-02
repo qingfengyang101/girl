@@ -444,7 +444,6 @@
         },
         handleGetUserName: function (res) {
           if (this.$lodash.isObject(res)) {
-            console.log(res);
           }
         },
         handleGetWeather: function (res) {

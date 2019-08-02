@@ -1,7 +1,9 @@
 <template>
-    <div class="weather-warp">
+    <div 
+        class="weather-warp"
+        v-if="weatherDataFlag"
+    >
         <mu-container
-            
             v-for="(value, index) in weatherData"
             :key="index"
         >
@@ -59,6 +61,16 @@ export default {
       }  
     },
 
+    computed: {
+        weatherDataFlag: function () {
+            if (!this.$lodash.isArray(this.weatherData)) {
+                return false;
+            }
+
+            return true;
+        }
+    },
+
     methods: {
         handleWeatherCityBasic: function (value) {
             return `${value.basic.parent_city}${value.basic.location}${this.getLang('TITLE_THE_WEATHER_FORECAST')}`
@@ -71,6 +83,7 @@ export default {
             return val;
         },
         handleGetWeatherBodyFeelIcon: function (val) {
+            if (!val) return null;
             let valStr = val + '',
                 that = this;
                 
@@ -83,6 +96,7 @@ export default {
             return that.weatherIconUrl;
         },
         handleGetWeatherBodyFeelWind: function (value) {
+           if (!this.$lodash.isObject(value) || !value) return null;
            return `${value.now.wind_dir}  ${this.getLang('TITLE_THE_WEATHER_FORECAST_FENGLI')}： ${value.now.wind_sc}${this.getLang('TITLE_THE_WEATHER_FORECAST_FENGLI_DEEP')}`;
         }
     }

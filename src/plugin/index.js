@@ -3,7 +3,7 @@
  *  Author: xuyinghao,
  *  Date: 2018/6/28
  */
-import Vue from 'vue'
+import Vue from 'vue';
 import * as $sass from './CommonSassVariable';
 import * as Constant from './Constant';
 import * as API from '../../static/api/API';
