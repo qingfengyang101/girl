@@ -497,7 +497,8 @@
   .login-warp {
     width: 100%;
     height: 900px;
-
+    position: relative;
+    
     .title-message-style {
       width: 100%;
       text-align: center;

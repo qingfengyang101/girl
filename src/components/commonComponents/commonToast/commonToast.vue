@@ -8,8 +8,10 @@
                 <img :src="handleSeacherIconUrl" alt="提示图标">
             </div>
             <!-- 右面提示语 -->
-            <div class="">
-
+            <div class="common-toast-right-box">
+                <div>
+                    {{ toastMessage }}
+                </div>                
             </div>
         </div>
        
@@ -27,6 +29,10 @@
                 type: String,
                 default: ""
             },
+            toastMessage: {
+                type: String,
+                default: ""
+            }
         },
         computed: {
             handleSeacherIconUrl: function () {

@@ -104,11 +104,12 @@ export default {
 </script>
 <style lang="less" scoped>
     .container {
-        margin: 0;
+        position: relative;
         padding: 0;
+        height: auto;
     }
     .weather-warp {
-        position: absolute;
+        position: fixed;
         top: 64px;
         right: 0;
         width: 350px;
