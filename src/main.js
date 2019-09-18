@@ -25,15 +25,13 @@ import Axios from 'axios';
 
 vuePrototype.$axios = Axios;
 vuePrototype.$lodash = Lodash;
+vuePrototype.eventBus = vuePrototype.$bus;
 
 Vue.use(PLUG);
 Vue.use(commonComponentMap);
 Vue.use(MuseUI);
 Vue.use(VueBus);
-
-vuePrototype.eventBus = vuePrototype.$bus;
 Vue.config.productionTip = false;
-
 /** requset to  */
 
 /* eslint-disable no-new */
