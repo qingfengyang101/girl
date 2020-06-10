@@ -14,6 +14,11 @@
     }
 
     data () {
+      /*
+       * props is very import for us
+       * that is very common for me
+       *
+      */ 
       return {
         USER_ID: null,
         USER_NAME: '',

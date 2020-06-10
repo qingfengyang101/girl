@@ -3,14 +3,13 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router';
-import VueBus from 'vue-bus';
+import vueBus from 'vue-bus';
 
 window.getVuePrototype = (Vue) => {
   return (Vue && Vue.prototype);
 }
 
 const vuePrototype = window.getVuePrototype(Vue);
-
 
 /** use common function **/
 import * as PLUG from "./plugin/index";
@@ -25,13 +24,16 @@ import Axios from 'axios';
 
 vuePrototype.$axios = Axios;
 vuePrototype.$lodash = Lodash;
-vuePrototype.eventBus = vuePrototype.$bus;
 
 Vue.use(PLUG);
 Vue.use(commonComponentMap);
 Vue.use(MuseUI);
-Vue.use(VueBus);
+Vue.use(vueBus); 
 Vue.config.productionTip = false;
+
+// Vue日志警告
+Vue.config.devtools = true;
+
 /** requset to  */
 
 /* eslint-disable no-new */

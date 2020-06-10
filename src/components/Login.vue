@@ -255,7 +255,6 @@
       <!-- 天气预报部分 -->
       <common-weather
         :weatherData="weatherData"
-
       >
 
       </common-weather>
@@ -333,7 +332,7 @@
       WEATHER_LUOHE_REQUERST,
       WEATHER_LUOHE_REQUERST_ERROR
     } from '../store/mutation-types';
-
+    
     export default {
       name: "Login",
       components: {
@@ -480,13 +479,13 @@
       },
       created () {
         this.$store.dispatch(WEATHER_LUOHE_REQUERST, {});
-        this.eventBus.on(GET_USER_NAME, this.handleGetUserName);
-        this.eventBus.on(WEATHER_LUOHE_REQUERST, this.handleGetWeather);
-        this.eventBus.on(WEATHER_LUOHE_REQUERST_ERROR, this.handleGetWeatherServerError)
+        this.$bus.on(GET_USER_NAME, this.handleGetUserName);
+        this.$bus.on(WEATHER_LUOHE_REQUERST, this.handleGetWeather);
+        this.$bus.on(WEATHER_LUOHE_REQUERST_ERROR, this.handleGetWeatherServerError)
       },
       beforeDestroy () {
-        this.eventBus.off(GET_USER_NAME, this.handleGetUserName);
-        this.eventBus.off(WEATHER_LUOHE_REQUERST_ERROR, this.handleGetWeatherServerError);
+        this.$bus.off(GET_USER_NAME, this.handleGetUserName);
+        this.$bus.off(WEATHER_LUOHE_REQUERST_ERROR, this.handleGetWeatherServerError);
       }
     }
 </script>

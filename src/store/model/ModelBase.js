@@ -26,6 +26,9 @@ class ModelBase {
 
   get (key) {
     if (lodash.has(this.properties, key)) {
+      if ( !this.properties) {
+          return null;
+      }
       return this.properties[key];
     }
   }
@@ -41,3 +44,6 @@ class ModelBase {
 }
 
 export default ModelBase;
+
+
+// 一定要给函数以参数化。
