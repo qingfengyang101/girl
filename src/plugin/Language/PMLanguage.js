@@ -6,7 +6,8 @@ import PMLanguageConfig from './PMLanguageConfig';
 
 let LangEngine = {
   useLanguage: function (locale, languages, fallbackLocale) {
-    Vue.use(VueI18n)
+    Vue.use(VueI18n);
+
     let langConfig = {
       locale: locale,
       messages: languages

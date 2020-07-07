@@ -30,16 +30,16 @@
 
       getWifeLike().then((res) => {
 
-        Vue.prototype.eventBus.emit(types.GET_WIFE_LIKE, res);
+        that.EventBus.emit(types.GET_WIFE_LIKE, res);
         commit(types.GET_WIFE_LIKE, res);
       });
     },
     [types.USER_LOGIN_SYSTEM] ({commit}, payload) {
       if (that.$lodash.isObject(payload)) {
-        Vue.prototype.eventBus.emit(types.USER_LOGIN_SYSTEM, payload);
+        that.EventBus.emit(types.USER_LOGIN_SYSTEM, payload);
         commit(types.USER_LOGIN_SYSTEM, payload);
       } else {
-        Vue.prototype.eventBus.emit(types.USER_LOGIN_ERROR, payload);
+        that.EventBus.emit(types.USER_LOGIN_ERROR, payload);
       }
     },
     [types.WEATHER_LUOHE_REQUERST] ({commit}, payload) {
@@ -53,8 +53,9 @@
 
       requestWeather().then( ( data ) => {
         commit(types.WEATHER_LUOHE_REQUERST, data);
+        that.EventBus.emit(types.WEATHER_LUOHE_REQUERST, data);
       }).catch (error => {
-        Vue.prototype.eventBus.emit(types.WEATHER_LUOHE_REQUERST_ERROR, error);
+        that.EventBus.emit(types.WEATHER_LUOHE_REQUERST_ERROR, error);
       })
     }
     

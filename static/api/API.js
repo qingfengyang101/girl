@@ -22,7 +22,7 @@ const api = {
       }
     }
 
-    Vue.prototype.$api = apiMap
+    Vue.prototype.$api = apiMap;
   }
 }
 

@@ -3,7 +3,6 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router';
-import VueBus from 'vue-bus';
 
 window.getVuePrototype = (Vue) => {
   return (Vue && Vue.prototype);
@@ -11,12 +10,11 @@ window.getVuePrototype = (Vue) => {
 
 const vuePrototype = window.getVuePrototype(Vue);
 
-
 /** use common function **/
 import * as PLUG from "./plugin/index";
 
 /** use common component.js **/
-import * as commonComponentMap from './components/commonComponents/index';
+import commonComponentMap from './components/commonComponents/index';
 import MuseUI from './external/index';
 import Lodash from './external/lodash';
 import store from './store/index.js';
@@ -25,12 +23,11 @@ import Axios from 'axios';
 
 vuePrototype.$axios = Axios;
 vuePrototype.$lodash = Lodash;
-vuePrototype.eventBus = vuePrototype.$bus;
 
 Vue.use(PLUG);
 Vue.use(commonComponentMap);
 Vue.use(MuseUI);
-Vue.use(VueBus);
+
 Vue.config.productionTip = false;
 /** requset to  */
 

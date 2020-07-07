@@ -10,6 +10,7 @@ import * as API from '../../static/api/API';
 import * as CommonFunc from './UnitFunction';
 import * as Assert from './PMAssert';
 import * as Https from './Https/index';
+import EventBus from './EventBus';
 
 const PLUG = {
     install (Vue) {
@@ -19,6 +20,7 @@ const PLUG = {
         Vue.use(CommonFunc);
         Vue.use(Assert);
         Vue.use(Https);
+        Vue.use(EventBus);
     }
 };
 

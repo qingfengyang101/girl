@@ -11,7 +11,7 @@
 
   export default {
     [types.GET_USER_NAME] (state, payload) {
-      Vue.prototype.eventBus.emit(types.GET_USER_NAME, payload)
+      that.EventBus.emit(types.GET_USER_NAME, payload);
     },
 
     [types.SET_USER_NAME] (state, name) {
@@ -23,13 +23,13 @@
     [types.USER_LOGIN_SYSTEM] (state, payload) {
       if (that.$lodash.isObject(payload)) {
          const userModel = new UserModel('User').initFromArray(payload);
-         Vue.prototype.eventBus.emit(types.USER_LOGIN_SYSTEM, userModel);
+         that.EventBus.emit(types.USER_LOGIN_SYSTEM, userModel);
       }
     },
     [types.WEATHER_LUOHE_REQUERST] (state, payload) {
-      Vue.prototype.eventBus.emit(types.WEATHER_LUOHE_REQUERST, payload);
+        that.EventBus.emit(types.WEATHER_LUOHE_REQUERST, payload);
     },
     [types.WEATHER_LUOHE_REQUERST_ERROR] (state, payload) {
-      Vue.prototype.eventBus.emit(types.WEATHER_LUOHE_REQUERST_ERROR, payload);
+        that.EventBus.emit(types.WEATHER_LUOHE_REQUERST_ERROR, payload);
     }
   }
