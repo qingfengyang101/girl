@@ -11,6 +11,7 @@
 
   import Vue from 'vue';
   import PMServerCode from './PMserverCode';
+  import EventBus from '../EventBus.js';
 
   const that = Vue.prototype;
 
@@ -19,7 +20,7 @@
     that.$Assert.isString(url);
     that.$Assert.isObject(params);
 
-    that.$axios.post(url, params)
+    fetch(url, params)
       .then((response) => {
         if (that.$Assert.isObject(response)) {
           return commonRequestSuccess(methods, response);
@@ -44,25 +45,30 @@
       url += ('?' + payload.join('')).slice(0 , url.length - 1);
     }
 
-    that.$axios.get(url)
-      .then((response) => {
-        if (that.$lodash.isObject(response)) {
-          commonRequestSuccess(methods, response);
-        }
+    console.log(fetch, 'fetch...')
+    fetch(url)
+      .then(response => response.json())
+      .then( data => {
+        
+          if (that.$lodash.isObject (data)) {
+            commonRequestSuccess(methods, data);
+            return data;
+          }
       })
       .catch((error) => {
         if (that.$lodash.isObject(error)) {
           commonRequestError(methods, error);
+          return error;
         }
       })
   }
 
   export function commonRequestSuccess (methods, res) {
-    Vue.prototype.eventBus.emit(methods, res);
+    Vue.prototype.EventBus.emit(methods, res);
   }
 
   export function commonRequestError (methods, error) {
-    Vue.prototype.eventBus.emit(methods, error);
+    Vue.prototype.EventBus.emit(methods, error);
   }
 
 

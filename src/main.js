@@ -10,6 +10,10 @@ window.getVuePrototype = (Vue) => {
 
 const vuePrototype = window.getVuePrototype(Vue);
 
+/** init use data for when app install */
+
+
+
 /** use common function **/
 import * as PLUG from "./plugin/index";
 
@@ -20,6 +24,9 @@ import Lodash from './external/lodash';
 import store from './store/index.js';
 import i18n from './plugin/Language/PMLanguage';
 import Axios from 'axios';
+import getDataLoad from './plugin/getDataLoad';
+
+console.log(getDataLoad,'getDataLoad...')
 
 vuePrototype.$axios = Axios;
 vuePrototype.$lodash = Lodash;
@@ -27,6 +34,7 @@ vuePrototype.$lodash = Lodash;
 Vue.use(PLUG);
 Vue.use(commonComponentMap);
 Vue.use(MuseUI);
+Vue.use(getDataLoad);
 
 Vue.config.productionTip = false;
 /** requset to  */

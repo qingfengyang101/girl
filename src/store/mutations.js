@@ -30,6 +30,7 @@
         that.EventBus.emit(types.WEATHER_LUOHE_REQUERST, payload);
     },
     [types.WEATHER_LUOHE_REQUERST_ERROR] (state, payload) {
+        console.log(state, payload, 'payload....');
         that.EventBus.emit(types.WEATHER_LUOHE_REQUERST_ERROR, payload);
     }
   }

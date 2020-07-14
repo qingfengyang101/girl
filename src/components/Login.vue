@@ -15,8 +15,6 @@
       </mu-appbar>
       <!-- 答题部分 -->
       <div class="img-box">
-      
-
         <!-- 登录信息验证 -->
         <div class="login-wife-warp">
           <mu-text-field
@@ -453,7 +451,7 @@
         },
         handleGetWeather: function (res) {
           if (this.$lodash.isObject(res)) {
-            this.weatherData = res.weatherResult.data.HeWeather6;   
+            this.weatherData = res.HeWeather6;   
           }
         },
         handleGetWeatherServerError: function (error) {
