@@ -7,6 +7,7 @@
   import * as types from './mutation-types';
   import * as API from '../../static/api/API';
   import Vue from 'vue';
+import { commonRequestSuccess, commonRequestError } from '../plugin/Https/HttpsRequset';
   const that = Vue.prototype;
   const eventBus = new Vue();
 
@@ -18,8 +19,8 @@
     [types.GET_WIFE_LIKE] ({commit}, payload) {
       async function getWifeLike () {
         try {
-          const wifeLike = await that.$axios.get(that.$api.GET_WIFE_LIKE);
-          const wifeInfoBase = await that.$axios.get(that.$api.WIFE_INFO_BASE);
+          const wifeLike = await that.$https.get(that.$api.GET_WIFE_LIKE);
+          const wifeInfoBase = await that.$https.get(that.$api.WIFE_INFO_BASE);
 
           return {
             wifeLike,
@@ -31,22 +32,28 @@
 
       getWifeLike().then((res) => {
 
-        eventBus.$emit(types.GET_WIFE_LIKE, res);
+        that.EventBus.emit(types.GET_WIFE_LIKE, res);
         commit(types.GET_WIFE_LIKE, res);
       });
     },
     [types.USER_LOGIN_SYSTEM] ({commit}, payload) {
       if (that.$lodash.isObject(payload)) {
-        eventBus.$emit(types.USER_LOGIN_SYSTEM, payload);
+        that.EventBus.emit(types.USER_LOGIN_SYSTEM, payload);
         commit(types.USER_LOGIN_SYSTEM, payload);
       } else {
-        eventBus.$emit(types.USER_LOGIN_ERROR, payload);
+        that.EventBus.emit(types.USER_LOGIN_ERROR, payload);
       }
     },
     [types.WEATHER_LUOHE_REQUERST] ({commit}, payload) {
 
       async function requestWeather () {
-        let weatherResult = await that.$axios.get(that.$api.WEATHER_LUOHE_REQUERST_API);
+        console.log(that.$https.get, 'get....')
+        let weatherResult = await that.$https.get(
+            types.WEATHER_LUOHE_REQUERST,
+            that.$api.WEATHER_LUOHE_REQUERST_API
+          );
+
+        console.log(weatherResult, 'weatherResult...');
           return {
             weatherResult
           };
@@ -54,9 +61,9 @@
 
       requestWeather().then( ( data ) => {
         commit(types.WEATHER_LUOHE_REQUERST, data);
+        commonRequestSuccess(types.WEATHER_LUOHE_REQUERST, data);
       }).catch (error => {
-        eventBus.$emit(types.WEATHER_LUOHE_REQUERST_ERROR, error);
+        commonRequestError(types.WEATHER_LUOHE_REQUERST_ERROR, error);
       })
     }
-    
   }

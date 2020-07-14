@@ -36,12 +36,14 @@
         },
         computed: {
             handleSeacherIconUrl: function () {
-
+                return null;
             }
         }
     }
 </script>
 
 <style scoped>
-
+    .common-toast-container {
+        animation: cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
 </style>

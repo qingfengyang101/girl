@@ -44,6 +44,7 @@
 </template>
 <script>
 import weatherIconModel from "../../assets/img/weatherImg/weather-icon";
+import * as type from '../../store/mutation-types';
 
 export default {
     props: {
@@ -60,13 +61,12 @@ export default {
           weatherIconUrl: ''
       }  
     },
-
     computed: {
         weatherDataFlag: function () {
             if (!this.$lodash.isArray(this.weatherData)) {
                 return false;
-            }
-
+            };
+            
             return true;
         }
     },

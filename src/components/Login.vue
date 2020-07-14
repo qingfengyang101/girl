@@ -255,6 +255,10 @@
       <!-- 天气预报部分 -->
       <common-weather
         :weatherData="weatherData"
+<<<<<<< HEAD
+=======
+        v-if="weatherData"
+>>>>>>> master
       >
 
       </common-weather>
@@ -333,7 +337,7 @@
       WEATHER_LUOHE_REQUERST_ERROR
     } from '../store/mutation-types';
     
-    export default {
+    export default { 
       name: "Login",
       components: {
       },
@@ -365,7 +369,9 @@
           wifeAphorism: this.$t('LABEL_WIFE_BASE_INFO_WIFE_APHORISM'),
           wifeLikeLove: this.$t('LABEL_WIFE_BASE_INFO_WIFE_LIKE_LOVE'),
           wifeLife: this.$t('LABEL_WIFE_BASE_INFO_WIFE_LIFE'),
-          weatherData: null
+          weatherData: null,
+          myText: '我是输入框',
+          isShowInput: false
         }
       },
       methods: {
@@ -443,15 +449,16 @@
         },
         handleGetUserName: function (res) {
           if (this.$lodash.isObject(res)) {
+            console.log(res, 'res');
           }
         },
         handleGetWeather: function (res) {
           if (this.$lodash.isObject(res)) {
-            this.weatherData = res.weatherResult.data.HeWeather6;         
+            this.weatherData = res.HeWeather6;   
           }
         },
         handleGetWeatherServerError: function (error) {
-          
+          console.log(error, "error");
         }
       },
       computed: {
@@ -479,13 +486,13 @@
       },
       created () {
         this.$store.dispatch(WEATHER_LUOHE_REQUERST, {});
-        this.$bus.on(GET_USER_NAME, this.handleGetUserName);
-        this.$bus.on(WEATHER_LUOHE_REQUERST, this.handleGetWeather);
-        this.$bus.on(WEATHER_LUOHE_REQUERST_ERROR, this.handleGetWeatherServerError)
+        this.EventBus.on(GET_USER_NAME, this.handleGetUserName);
+        this.EventBus.on(WEATHER_LUOHE_REQUERST, this.handleGetWeather);
+        this.EventBus.on(WEATHER_LUOHE_REQUERST_ERROR, this.handleGetWeatherServerError);
       },
       beforeDestroy () {
-        this.$bus.off(GET_USER_NAME, this.handleGetUserName);
-        this.$bus.off(WEATHER_LUOHE_REQUERST_ERROR, this.handleGetWeatherServerError);
+        this.EventBus.off(GET_USER_NAME, this.handleGetUserName);
+        this.EventBus.off(WEATHER_LUOHE_REQUERST_ERROR, this.handleGetWeatherServerError);
       }
     }
 </script>
